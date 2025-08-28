@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>CMAsnap Documentation</title>
+  <!-- needed for adaptive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="https://cdn.redocly.com/redoc/v2.5.0/bundles/redoc.standalone.js"></script><style data-styled="true" data-styled-version="6.1.19">.fqkwbU{width:calc(100% - 40%);padding:0 40px;}/*!sc*/
+@media print,screen and (max-width: 75rem){.fqkwbU{width:100%;padding:40px 40px;}}/*!sc*/
+.dCzIPc{width:calc(100% - 40%);padding:0 40px;}/*!sc*/
+@media print,screen and (max-width: 75rem){.dCzIPc{width:100%;padding:0px 40px;}}/*!sc*/
+data-styled.g4[id="sc-ggWZvA"]{content:"fqkwbU,dCzIPc,"}/*!sc*/
+.bPmFpz{padding:40px 0;}/*!sc*/
+.bPmFpz:last-child{min-height:calc(100vh + 1px);}/*!sc*/
+.bPmFpz>.bPmFpz:last-child{min-height:initial;}/*!sc*/
+@media print,screen and (max-width: 75rem){.bPmFpz{padding:0;}}/*!sc*/
+.gHrCVQ{padding:40px 0;position:relative;}/*!sc*/
+.gHrCVQ:last-child{min-height:calc(100vh + 1px);}/*!sc*/
+.gHrCVQ>.gHrCVQ:last-child{min-height:initial;}/*!sc*/
+@media print,screen and (max-width: 75rem){.gHrCVQ{padding:0;}}/*!sc*/
+.gHrCVQ:not(:last-of-type):after{position:absolute;bottom:0;width:100%;display:block;content:'';border-bottom:1px solid rgba(0, 0, 0, 0.2);}/*!sc*/
+data-styled.g5[id="sc-dTvVRJ"]{content:"bPmFpz,gHrCVQ,"}/*!sc*/
+.bDYKKx{width:40%;color:#ffffff;background-color:#263238;padding:0 40px;}/*!sc*/
+@media print,screen and (max-width: 75rem){.bDYKKx{width:100%;padding:40px 40px;}}/*!sc*/
+data-styled.g6[id="sc-jwTyAe"]{content:"bDYKKx,"}/*!sc*/
+.FFPsr{background-color:#263238;}/*!sc*/
+data-styled.g7[id="sc-hjsuWn"]{content:"FFPsr,"}/*!sc*/
+.gkiSyE{display:flex;width:100%;padding:0;}/*!sc*/
+@media print,screen and (max-width: 75rem){.gkiSyE{flex-direction:column;}}/*!sc*/
+data-styled.g8[id="sc-jJLAfE"]{content:"gkiSyE,"}/*!sc*/
+.wYHiz{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.85714em;line-height:1.6em;color:#333333;}/*!sc*/
+data-styled.g9[id="sc-hwkwBN"]{content:"wYHiz,"}/*!sc*/
+.iFSqkw{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.57143em;line-height:1.6em;color:#333333;margin:0 0 20px;}/*!sc*/
+data-styled.g10[id="sc-kNOymR"]{content:"iFSqkw,"}/*!sc*/
+.cXqSZD{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.27em;line-height:1.6em;color:#333333;}/*!sc*/
+data-styled.g11[id="sc-dYwGCk"]{content:"cXqSZD,"}/*!sc*/
+.czjApA{border-bottom:1px solid rgba(38, 50, 56, 0.3);margin:1em 0 1em 0;color:rgba(38, 50, 56, 0.5);font-weight:normal;text-transform:uppercase;font-size:0.929em;line-height:20px;}/*!sc*/
+data-styled.g13[id="sc-eqYatC"]{content:"czjApA,"}/*!sc*/
+.fRdsOi{cursor:pointer;margin-left:-20px;padding:0;line-height:1;width:20px;display:inline-block;outline:0;}/*!sc*/
+.fRdsOi:before{content:'';width:15px;height:15px;background-size:contain;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNNDU5LjcgMjMzLjRsLTkwLjUgOTAuNWMtNTAgNTAtMTMxIDUwLTE4MSAwIC03LjktNy44LTE0LTE2LjctMTkuNC0yNS44bDQyLjEtNDIuMWMyLTIgNC41LTMuMiA2LjgtNC41IDIuOSA5LjkgOCAxOS4zIDE1LjggMjcuMiAyNSAyNSA2NS42IDI0LjkgOTAuNSAwbDkwLjUtOTAuNWMyNS0yNSAyNS02NS42IDAtOTAuNSAtMjQuOS0yNS02NS41LTI1LTkwLjUgMGwtMzIuMiAzMi4yYy0yNi4xLTEwLjItNTQuMi0xMi45LTgxLjYtOC45bDY4LjYtNjguNmM1MC01MCAxMzEtNTAgMTgxIDBDNTA5LjYgMTAyLjMgNTA5LjYgMTgzLjQgNDU5LjcgMjMzLjR6TTIyMC4zIDM4Mi4ybC0zMi4yIDMyLjJjLTI1IDI0LjktNjUuNiAyNC45LTkwLjUgMCAtMjUtMjUtMjUtNjUuNiAwLTkwLjVsOTAuNS05MC41YzI1LTI1IDY1LjUtMjUgOTAuNSAwIDcuOCA3LjggMTIuOSAxNy4yIDE1LjggMjcuMSAyLjQtMS40IDQuOC0yLjUgNi44LTQuNWw0Mi4xLTQyYy01LjQtOS4yLTExLjYtMTgtMTkuNC0yNS44IC01MC01MC0xMzEtNTAtMTgxIDBsLTkwLjUgOTAuNWMtNTAgNTAtNTAgMTMxIDAgMTgxIDUwIDUwIDEzMSA1MCAxODEgMGw2OC42LTY4LjZDMjc0LjYgMzk1LjEgMjQ2LjQgMzkyLjMgMjIwLjMgMzgyLjJ6Ii8+PC9zdmc+Cg==');opacity:0.5;visibility:hidden;display:inline-block;vertical-align:middle;}/*!sc*/
+h1:hover>.fRdsOi::before,h2:hover>.fRdsOi::before,.fRdsOi:hover::before{visibility:visible;}/*!sc*/
+data-styled.g14[id="sc-kcLKEh"]{content:"fRdsOi,"}/*!sc*/
+.dUlzCe{height:18px;width:18px;min-width:18px;vertical-align:middle;float:right;transition:transform 0.2s ease-out;transform:rotateZ(-90deg);}/*!sc*/
+.iuNpUs{height:20px;width:20px;min-width:20px;vertical-align:middle;float:right;transition:transform 0.2s ease-out;transform:rotateZ(0);}/*!sc*/
+.iuNpUs polygon{fill:white;}/*!sc*/
+data-styled.g15[id="sc-dntSTA"]{content:"dUlzCe,iuNpUs,"}/*!sc*/
+.dNuXXU{border-left:1px solid #98c28e;box-sizing:border-box;position:relative;padding:10px 10px 10px 0;}/*!sc*/
+@media screen and (max-width: 50rem){.dNuXXU{display:block;overflow:hidden;}}/*!sc*/
+tr:first-of-type>.dNuXXU,tr.last>.dNuXXU{border-left-width:0;background-position:top left;background-repeat:no-repeat;background-size:1px 100%;}/*!sc*/
+tr:first-of-type>.dNuXXU{background-image:linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 22px,
+      #98c28e 22px,
+      #98c28e 100%
+    );}/*!sc*/
+tr.last>.dNuXXU{background-image:linear-gradient(
+      to bottom,
+      #98c28e 0%,
+      #98c28e 22px,
+      transparent 22px,
+      transparent 100%
+    );}/*!sc*/
+tr.last+tr>.dNuXXU{border-left-color:transparent;}/*!sc*/
+tr.last:first-child>.dNuXXU{background:none;border-left-color:transparent;}/*!sc*/
+data-styled.g18[id="sc-kCuUfV"]{content:"dNuXXU,"}/*!sc*/
+.dFOJWJ{vertical-align:top;line-height:20px;white-space:nowrap;font-size:13px;font-family:Courier,monospace;}/*!sc*/
+.dFOJWJ.deprecated{text-decoration:line-through;color:#707070;}/*!sc*/
+data-styled.g20[id="sc-fbQrwq"]{content:"dFOJWJ,"}/*!sc*/
+.dSxocm{border-bottom:1px solid #9fb4be;padding:10px 0;width:75%;box-sizing:border-box;}/*!sc*/
+tr.expanded .dSxocm{border-bottom:none;}/*!sc*/
+@media screen and (max-width: 50rem){.dSxocm{padding:0 20px;border-bottom:none;border-left:1px solid #98c28e;}tr.last>.dSxocm{border-left:none;}}/*!sc*/
+data-styled.g21[id="sc-gGKoUb"]{content:"dSxocm,"}/*!sc*/
+.fzmcV{color:#98c28e;font-family:Courier,monospace;margin-right:10px;}/*!sc*/
+.fzmcV::before{content:'';display:inline-block;vertical-align:middle;width:10px;height:1px;background:#98c28e;}/*!sc*/
+.fzmcV::after{content:'';display:inline-block;vertical-align:middle;width:1px;background:#98c28e;height:7px;}/*!sc*/
+data-styled.g22[id="sc-hwddKA"]{content:"fzmcV,"}/*!sc*/
+.icJLQx{border-collapse:separate;border-radius:3px;font-size:14px;border-spacing:0;width:100%;}/*!sc*/
+.icJLQx >tr{vertical-align:middle;}/*!sc*/
+@media screen and (max-width: 50rem){.icJLQx{display:block;}.icJLQx >tr,.icJLQx >tbody>tr{display:block;}}/*!sc*/
+@media screen and (max-width: 50rem) and (-ms-high-contrast:none){.icJLQx td{float:left;width:100%;}}/*!sc*/
+.icJLQx .sc-jaXbil,.icJLQx .sc-jaXbil .sc-jaXbil .sc-jaXbil,.icJLQx .sc-jaXbil .sc-jaXbil .sc-jaXbil .sc-jaXbil .sc-jaXbil{margin:1em;margin-right:0;background:#fafafa;}/*!sc*/
+.icJLQx .sc-jaXbil .sc-jaXbil,.icJLQx .sc-jaXbil .sc-jaXbil .sc-jaXbil .sc-jaXbil,.icJLQx .sc-jaXbil .sc-jaXbil .sc-jaXbil .sc-jaXbil .sc-jaXbil .sc-jaXbil{background:#ffffff;}/*!sc*/
+data-styled.g24[id="sc-eqNDNG"]{content:"icJLQx,"}/*!sc*/
+.kIppRw code[class*='language-'],.kIppRw pre[class*='language-']{text-shadow:0 -0.1em 0.2em black;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;}/*!sc*/
+@media print{.kIppRw code[class*='language-'],.kIppRw pre[class*='language-']{text-shadow:none;}}/*!sc*/
+.kIppRw pre[class*='language-']{padding:1em;margin:0.5em 0;overflow:auto;}/*!sc*/
+.kIppRw .token.comment,.kIppRw .token.prolog,.kIppRw .token.doctype,.kIppRw .token.cdata{color:hsl(30, 20%, 50%);}/*!sc*/
+.kIppRw .token.punctuation{opacity:0.7;}/*!sc*/
+.kIppRw .namespace{opacity:0.7;}/*!sc*/
+.kIppRw .token.property,.kIppRw .token.tag,.kIppRw .token.number,.kIppRw .token.constant,.kIppRw .token.symbol{color:#4a8bb3;}/*!sc*/
+.kIppRw .token.boolean{color:#e64441;}/*!sc*/
+.kIppRw .token.selector,.kIppRw .token.attr-name,.kIppRw .token.string,.kIppRw .token.char,.kIppRw .token.builtin,.kIppRw .token.inserted{color:#a0fbaa;}/*!sc*/
+.kIppRw .token.selector+a,.kIppRw .token.attr-name+a,.kIppRw .token.string+a,.kIppRw .token.char+a,.kIppRw .token.builtin+a,.kIppRw .token.inserted+a,.kIppRw .token.selector+a:visited,.kIppRw .token.attr-name+a:visited,.kIppRw .token.string+a:visited,.kIppRw .token.char+a:visited,.kIppRw .token.builtin+a:visited,.kIppRw .token.inserted+a:visited{color:#4ed2ba;text-decoration:underline;}/*!sc*/
+.kIppRw .token.property.string{color:white;}/*!sc*/
+.kIppRw .token.operator,.kIppRw .token.entity,.kIppRw .token.url,.kIppRw .token.variable{color:hsl(40, 90%, 60%);}/*!sc*/
+.kIppRw .token.atrule,.kIppRw .token.attr-value,.kIppRw .token.keyword{color:hsl(350, 40%, 70%);}/*!sc*/
+.kIppRw .token.regex,.kIppRw .token.important{color:#e90;}/*!sc*/
+.kIppRw .token.important,.kIppRw .token.bold{font-weight:bold;}/*!sc*/
+.kIppRw .token.italic{font-style:italic;}/*!sc*/
+.kIppRw .token.entity{cursor:help;}/*!sc*/
+.kIppRw .token.deleted{color:red;}/*!sc*/
+data-styled.g32[id="sc-eVqvcJ"]{content:"kIppRw,"}/*!sc*/
+.ghzOpX{position:relative;}/*!sc*/
+data-styled.g37[id="sc-eknHtZ"]{content:"ghzOpX,"}/*!sc*/
+.hRyRVv{font-family:Roboto,sans-serif;font-weight:400;line-height:1.5em;}/*!sc*/
+.hRyRVv p:last-child{margin-bottom:0;}/*!sc*/
+.hRyRVv h1{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.85714em;line-height:1.6em;color:#52AF3B;margin-top:0;}/*!sc*/
+.hRyRVv h2{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.57143em;line-height:1.6em;color:#333333;}/*!sc*/
+.hRyRVv code{color:#e53935;background-color:rgba(38, 50, 56, 0.05);font-family:Courier,monospace;border-radius:2px;border:1px solid rgba(38, 50, 56, 0.1);padding:0 5px;font-size:13px;font-weight:400;word-break:break-word;}/*!sc*/
+.hRyRVv pre{font-family:Courier,monospace;white-space:pre;background-color:#11171a;color:white;padding:20px;overflow-x:auto;line-height:normal;border-radius:0;border:1px solid rgba(38, 50, 56, 0.1);}/*!sc*/
+.hRyRVv pre code{background-color:transparent;color:white;padding:0;}/*!sc*/
+.hRyRVv pre code:before,.hRyRVv pre code:after{content:none;}/*!sc*/
+.hRyRVv blockquote{margin:0;margin-bottom:1em;padding:0 15px;color:#777;border-left:4px solid #ddd;}/*!sc*/
+.hRyRVv img{max-width:100%;box-sizing:content-box;}/*!sc*/
+.hRyRVv ul,.hRyRVv ol{padding-left:2em;margin:0;margin-bottom:1em;}/*!sc*/
+.hRyRVv ul ul,.hRyRVv ol ul,.hRyRVv ul ol,.hRyRVv ol ol{margin-bottom:0;margin-top:0;}/*!sc*/
+.hRyRVv table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all;border-collapse:collapse;border-spacing:0;margin-top:1.5em;margin-bottom:1.5em;}/*!sc*/
+.hRyRVv table tr{background-color:#fff;border-top:1px solid #ccc;}/*!sc*/
+.hRyRVv table tr:nth-child(2n){background-color:#fafafa;}/*!sc*/
+.hRyRVv table th,.hRyRVv table td{padding:6px 13px;border:1px solid #ddd;}/*!sc*/
+.hRyRVv table th{text-align:left;font-weight:bold;}/*!sc*/
+.hRyRVv .share-link{cursor:pointer;margin-left:-20px;padding:0;line-height:1;width:20px;display:inline-block;outline:0;}/*!sc*/
+.hRyRVv .share-link:before{content:'';width:15px;height:15px;background-size:contain;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNNDU5LjcgMjMzLjRsLTkwLjUgOTAuNWMtNTAgNTAtMTMxIDUwLTE4MSAwIC03LjktNy44LTE0LTE2LjctMTkuNC0yNS44bDQyLjEtNDIuMWMyLTIgNC41LTMuMiA2LjgtNC41IDIuOSA5LjkgOCAxOS4zIDE1LjggMjcuMiAyNSAyNSA2NS42IDI0LjkgOTAuNSAwbDkwLjUtOTAuNWMyNS0yNSAyNS02NS42IDAtOTAuNSAtMjQuOS0yNS02NS41LTI1LTkwLjUgMGwtMzIuMiAzMi4yYy0yNi4xLTEwLjItNTQuMi0xMi45LTgxLjYtOC45bDY4LjYtNjguNmM1MC01MCAxMzEtNTAgMTgxIDBDNTA5LjYgMTAyLjMgNTA5LjYgMTgzLjQgNDU5LjcgMjMzLjR6TTIyMC4zIDM4Mi4ybC0zMi4yIDMyLjJjLTI1IDI0LjktNjUuNiAyNC45LTkwLjUgMCAtMjUtMjUtMjUtNjUuNiAwLTkwLjVsOTAuNS05MC41YzI1LTI1IDY1LjUtMjUgOTAuNSAwIDcuOCA3LjggMTIuOSAxNy4yIDE1LjggMjcuMSAyLjQtMS40IDQuOC0yLjUgNi44LTQuNWw0Mi4xLTQyYy01LjQtOS4yLTExLjYtMTgtMTkuNC0yNS44IC01MC01MC0xMzEtNTAtMTgxIDBsLTkwLjUgOTAuNWMtNTAgNTAtNTAgMTMxIDAgMTgxIDUwIDUwIDEzMSA1MCAxODEgMGw2OC42LTY4LjZDMjc0LjYgMzk1LjEgMjQ2LjQgMzkyLjMgMjIwLjMgMzgyLjJ6Ii8+PC9zdmc+Cg==');opacity:0.5;visibility:hidden;display:inline-block;vertical-align:middle;}/*!sc*/
+.hRyRVv h1:hover>.share-link::before,.hRyRVv h2:hover>.share-link::before,.hRyRVv .share-link:hover::before{visibility:visible;}/*!sc*/
+.hRyRVv a{text-decoration:auto;color:#52AF3B;}/*!sc*/
+.hRyRVv a:visited{color:#52AF3B;}/*!sc*/
+.hRyRVv a:hover{color:#8ed37d;text-decoration:auto;}/*!sc*/
+.jUvsIN{font-family:Roboto,sans-serif;font-weight:400;line-height:1.5em;}/*!sc*/
+.jUvsIN p:last-child{margin-bottom:0;}/*!sc*/
+.jUvsIN p:first-child{margin-top:0;}/*!sc*/
+.jUvsIN p:last-child{margin-bottom:0;}/*!sc*/
+.jUvsIN h1{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.85714em;line-height:1.6em;color:#52AF3B;margin-top:0;}/*!sc*/
+.jUvsIN h2{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.57143em;line-height:1.6em;color:#333333;}/*!sc*/
+.jUvsIN code{color:#e53935;background-color:rgba(38, 50, 56, 0.05);font-family:Courier,monospace;border-radius:2px;border:1px solid rgba(38, 50, 56, 0.1);padding:0 5px;font-size:13px;font-weight:400;word-break:break-word;}/*!sc*/
+.jUvsIN pre{font-family:Courier,monospace;white-space:pre;background-color:#11171a;color:white;padding:20px;overflow-x:auto;line-height:normal;border-radius:0;border:1px solid rgba(38, 50, 56, 0.1);}/*!sc*/
+.jUvsIN pre code{background-color:transparent;color:white;padding:0;}/*!sc*/
+.jUvsIN pre code:before,.jUvsIN pre code:after{content:none;}/*!sc*/
+.jUvsIN blockquote{margin:0;margin-bottom:1em;padding:0 15px;color:#777;border-left:4px solid #ddd;}/*!sc*/
+.jUvsIN img{max-width:100%;box-sizing:content-box;}/*!sc*/
+.jUvsIN ul,.jUvsIN ol{padding-left:2em;margin:0;margin-bottom:1em;}/*!sc*/
+.jUvsIN ul ul,.jUvsIN ol ul,.jUvsIN ul ol,.jUvsIN ol ol{margin-bottom:0;margin-top:0;}/*!sc*/
+.jUvsIN table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all;border-collapse:collapse;border-spacing:0;margin-top:1.5em;margin-bottom:1.5em;}/*!sc*/
+.jUvsIN table tr{background-color:#fff;border-top:1px solid #ccc;}/*!sc*/
+.jUvsIN table tr:nth-child(2n){background-color:#fafafa;}/*!sc*/
+.jUvsIN table th,.jUvsIN table td{padding:6px 13px;border:1px solid #ddd;}/*!sc*/
+.jUvsIN table th{text-align:left;font-weight:bold;}/*!sc*/
+.jUvsIN .share-link{cursor:pointer;margin-left:-20px;padding:0;line-height:1;width:20px;display:inline-block;outline:0;}/*!sc*/
+.jUvsIN .share-link:before{content:'';width:15px;height:15px;background-size:contain;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNNDU5LjcgMjMzLjRsLTkwLjUgOTAuNWMtNTAgNTAtMTMxIDUwLTE4MSAwIC03LjktNy44LTE0LTE2LjctMTkuNC0yNS44bDQyLjEtNDIuMWMyLTIgNC41LTMuMiA2LjgtNC41IDIuOSA5LjkgOCAxOS4zIDE1LjggMjcuMiAyNSAyNSA2NS42IDI0LjkgOTAuNSAwbDkwLjUtOTAuNWMyNS0yNSAyNS02NS42IDAtOTAuNSAtMjQuOS0yNS02NS41LTI1LTkwLjUgMGwtMzIuMiAzMi4yYy0yNi4xLTEwLjItNTQuMi0xMi45LTgxLjYtOC45bDY4LjYtNjguNmM1MC01MCAxMzEtNTAgMTgxIDBDNTA5LjYgMTAyLjMgNTA5LjYgMTgzLjQgNDU5LjcgMjMzLjR6TTIyMC4zIDM4Mi4ybC0zMi4yIDMyLjJjLTI1IDI0LjktNjUuNiAyNC45LTkwLjUgMCAtMjUtMjUtMjUtNjUuNiAwLTkwLjVsOTAuNS05MC41YzI1LTI1IDY1LjUtMjUgOTAuNSAwIDcuOCA3LjggMTIuOSAxNy4yIDE1LjggMjcuMSAyLjQtMS40IDQuOC0yLjUgNi44LTQuNWw0Mi4xLTQyYy01LjQtOS4yLTExLjYtMTgtMTkuNC0yNS44IC01MC01MC0xMzEtNTAtMTgxIDBsLTkwLjUgOTAuNWMtNTAgNTAtNTAgMTMxIDAgMTgxIDUwIDUwIDEzMSA1MCAxODEgMGw2OC42LTY4LjZDMjc0LjYgMzk1LjEgMjQ2LjQgMzkyLjMgMjIwLjMgMzgyLjJ6Ii8+PC9zdmc+Cg==');opacity:0.5;visibility:hidden;display:inline-block;vertical-align:middle;}/*!sc*/
+.jUvsIN h1:hover>.share-link::before,.jUvsIN h2:hover>.share-link::before,.jUvsIN .share-link:hover::before{visibility:visible;}/*!sc*/
+.jUvsIN a{text-decoration:auto;color:#52AF3B;}/*!sc*/
+.jUvsIN a:visited{color:#52AF3B;}/*!sc*/
+.jUvsIN a:hover{color:#8ed37d;text-decoration:auto;}/*!sc*/
+.chfQiV{font-family:Roboto,sans-serif;font-weight:400;line-height:1.5em;}/*!sc*/
+.chfQiV p:last-child{margin-bottom:0;}/*!sc*/
+.chfQiV p:first-child{margin-top:0;}/*!sc*/
+.chfQiV p:last-child{margin-bottom:0;}/*!sc*/
+.chfQiV p{display:inline-block;}/*!sc*/
+.chfQiV h1{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.85714em;line-height:1.6em;color:#52AF3B;margin-top:0;}/*!sc*/
+.chfQiV h2{font-family:Montserrat,sans-serif;font-weight:400;font-size:1.57143em;line-height:1.6em;color:#333333;}/*!sc*/
+.chfQiV code{color:#e53935;background-color:rgba(38, 50, 56, 0.05);font-family:Courier,monospace;border-radius:2px;border:1px solid rgba(38, 50, 56, 0.1);padding:0 5px;font-size:13px;font-weight:400;word-break:break-word;}/*!sc*/
+.chfQiV pre{font-family:Courier,monospace;white-space:pre;background-color:#11171a;color:white;padding:20px;overflow-x:auto;line-height:normal;border-radius:0;border:1px solid rgba(38, 50, 56, 0.1);}/*!sc*/
+.chfQiV pre code{background-color:transparent;color:white;padding:0;}/*!sc*/
+.chfQiV pre code:before,.chfQiV pre code:after{content:none;}/*!sc*/
+.chfQiV blockquote{margin:0;margin-bottom:1em;padding:0 15px;color:#777;border-left:4px solid #ddd;}/*!sc*/
+.chfQiV img{max-width:100%;box-sizing:content-box;}/*!sc*/
+.chfQiV ul,.chfQiV ol{padding-left:2em;margin:0;margin-bottom:1em;}/*!sc*/
+.chfQiV ul ul,.chfQiV ol ul,.chfQiV ul ol,.chfQiV ol ol{margin-bottom:0;margin-top:0;}/*!sc*/
+.chfQiV table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all;border-collapse:collapse;border-spacing:0;margin-top:1.5em;margin-bottom:1.5em;}/*!sc*/
+.chfQiV table tr{background-color:#fff;border-top:1px solid #ccc;}/*!sc*/
+.chfQiV table tr:nth-child(2n){background-color:#fafafa;}/*!sc*/
+.chfQiV table th,.chfQiV table td{padding:6px 13px;border:1px solid #ddd;}/*!sc*/
+.chfQiV table th{text-align:left;font-weight:bold;}/*!sc*/
+.chfQiV .share-link{cursor:pointer;margin-left:-20px;padding:0;line-height:1;width:20px;display:inline-block;outline:0;}/*!sc*/
+.chfQiV .share-link:before{content:'';width:15px;height:15px;background-size:contain;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNNDU5LjcgMjMzLjRsLTkwLjUgOTAuNWMtNTAgNTAtMTMxIDUwLTE4MSAwIC03LjktNy44LTE0LTE2LjctMTkuNC0yNS44bDQyLjEtNDIuMWMyLTIgNC41LTMuMiA2LjgtNC41IDIuOSA5LjkgOCAxOS4zIDE1LjggMjcuMiAyNSAyNSA2NS42IDI0LjkgOTAuNSAwbDkwLjUtOTAuNWMyNS0yNSAyNS02NS42IDAtOTAuNSAtMjQuOS0yNS02NS41LTI1LTkwLjUgMGwtMzIuMiAzMi4yYy0yNi4xLTEwLjItNTQuMi0xMi45LTgxLjYtOC45bDY4LjYtNjguNmM1MC01MCAxMzEtNTAgMTgxIDBDNTA5LjYgMTAyLjMgNTA5LjYgMTgzLjQgNDU5LjcgMjMzLjR6TTIyMC4zIDM4Mi4ybC0zMi4yIDMyLjJjLTI1IDI0LjktNjUuNiAyNC45LTkwLjUgMCAtMjUtMjUtMjUtNjUuNiAwLTkwLjVsOTAuNS05MC41YzI1LTI1IDY1LjUtMjUgOTAuNSAwIDcuOCA3LjggMTIuOSAxNy4yIDE1LjggMjcuMSAyLjQtMS40IDQuOC0yLjUgNi44LTQuNWw0Mi4xLTQyYy01LjQtOS4yLTExLjYtMTgtMTkuNC0yNS44IC01MC01MC0xMzEtNTAtMTgxIDBsLTkwLjUgOTAuNWMtNTAgNTAtNTAgMTMxIDAgMTgxIDUwIDUwIDEzMSA1MCAxODEgMGw2OC42LTY4LjZDMjc0LjYgMzk1LjEgMjQ2LjQgMzkyLjMgMjIwLjMgMzgyLjJ6Ii8+PC9zdmc+Cg==');opacity:0.5;visibility:hidden;display:inline-block;vertical-align:middle;}/*!sc*/
+.chfQiV h1:hover>.share-link::before,.chfQiV h2:hover>.share-link::before,.chfQiV .share-link:hover::before{visibility:visible;}/*!sc*/
+.chfQiV a{text-decoration:auto;color:#52AF3B;}/*!sc*/
+.chfQiV a:visited{color:#52AF3B;}/*!sc*/
+.chfQiV a:hover{color:#8ed37d;text-decoration:auto;}/*!sc*/
+data-styled.g42[id="sc-fszimp"]{content:"hRyRVv,jUvsIN,chfQiV,"}/*!sc*/
+.ljKHqG{display:inline;}/*!sc*/
+data-styled.g43[id="sc-etsjJW"]{content:"ljKHqG,"}/*!sc*/
+.lhyyLL{vertical-align:middle;font-size:13px;line-height:20px;}/*!sc*/
+data-styled.g58[id="sc-bEjUoa"]{content:"lhyyLL,"}/*!sc*/
+.jYezsP{color:rgba(102,102,102,0.9);}/*!sc*/
+data-styled.g59[id="sc-boKDdR"]{content:"jYezsP,"}/*!sc*/
+.dbKJYq{color:#666;}/*!sc*/
+data-styled.g60[id="sc-fOOuSg"]{content:"dbKJYq,"}/*!sc*/
+.kMQdIk{border-radius:2px;word-break:break-word;background-color:rgba(51,51,51,0.05);color:rgba(51,51,51,0.9);padding:0 5px;border:1px solid rgba(51,51,51,0.1);font-family:Courier,monospace;}/*!sc*/
++{margin-left:0;}/*!sc*/
+data-styled.g66[id="sc-dTWiOz"]{content:"kMQdIk,"}/*!sc*/
+.hPcPCj{margin-top:0;margin-bottom:0.5em;}/*!sc*/
+data-styled.g92[id="sc-jCWzJg"]{content:"hPcPCj,"}/*!sc*/
+.hijBKj::before{content:'|';display:inline-block;opacity:0.5;width:15px;text-align:center;}/*!sc*/
+.hijBKj:last-child::after{display:none;}/*!sc*/
+data-styled.g94[id="sc-jVxTAy"]{content:"hijBKj,"}/*!sc*/
+.eAqtbt{overflow:hidden;}/*!sc*/
+data-styled.g95[id="sc-erPUmh"]{content:"eAqtbt,"}/*!sc*/
+.beOrEi{display:flex;flex-wrap:wrap;margin-left:-15px;}/*!sc*/
+data-styled.g96[id="sc-iRTMaw"]{content:"beOrEi,"}/*!sc*/
+.boxHVJ{max-height:260px;max-width:260px;padding:2px;width:100%;display:block;}/*!sc*/
+data-styled.g97[id="sc-eKrodz"]{content:"boxHVJ,"}/*!sc*/
+.eWuUlW{text-align:center;}/*!sc*/
+data-styled.g98[id="sc-jkvfRO"]{content:"eWuUlW,"}/*!sc*/
+.cirrIW{display:inline-block;}/*!sc*/
+data-styled.g99[id="sc-eXVaYZ"]{content:"cirrIW,"}/*!sc*/
+.cpoITs{width:9ex;display:inline-block;height:13px;line-height:13px;background-color:#333;border-radius:3px;background-repeat:no-repeat;background-position:6px 4px;font-size:7px;font-family:Verdana,sans-serif;color:white;text-transform:uppercase;text-align:center;font-weight:bold;vertical-align:middle;margin-right:6px;margin-top:2px;}/*!sc*/
+.cpoITs.get{background-color:#2F8132;}/*!sc*/
+.cpoITs.post{background-color:#186FAF;}/*!sc*/
+.cpoITs.put{background-color:#95507c;}/*!sc*/
+.cpoITs.options{background-color:#947014;}/*!sc*/
+.cpoITs.patch{background-color:#bf581d;}/*!sc*/
+.cpoITs.delete{background-color:#cc3333;}/*!sc*/
+.cpoITs.basic{background-color:#707070;}/*!sc*/
+.cpoITs.link{background-color:#07818F;}/*!sc*/
+.cpoITs.head{background-color:#A23DAD;}/*!sc*/
+.cpoITs.hook{background-color:#52AF3B;}/*!sc*/
+.cpoITs.schema{background-color:#707070;}/*!sc*/
+data-styled.g100[id="sc-jxYSNo"]{content:"cpoITs,"}/*!sc*/
+.gAPKXX{margin:0;padding:0;}/*!sc*/
+.gAPKXX:first-child{padding-bottom:32px;}/*!sc*/
+.sc-zOxLx .sc-zOxLx{font-size:0.929em;}/*!sc*/
+.dQnkdy{margin:0;padding:0;display:none;}/*!sc*/
+.dQnkdy:first-child{padding-bottom:32px;}/*!sc*/
+.sc-zOxLx .sc-zOxLx{font-size:0.929em;}/*!sc*/
+data-styled.g101[id="sc-zOxLx"]{content:"gAPKXX,dQnkdy,"}/*!sc*/
+.ixknQI{list-style:none inside none;overflow:hidden;text-overflow:ellipsis;padding:0;}/*!sc*/
+.gRNEoC{list-style:none inside none;overflow:hidden;text-overflow:ellipsis;padding:0;margin-top:15px;}/*!sc*/
+data-styled.g102[id="sc-cgHfjM"]{content:"ixknQI,gRNEoC,"}/*!sc*/
+.kRKgRk{cursor:pointer;color:#333333;margin:0;padding:12.5px 20px;display:flex;justify-content:space-between;font-family:Montserrat,sans-serif;font-size:0.929em;text-transform:none;background-color:#fafafa;}/*!sc*/
+.kRKgRk:hover{color:#52AF3B;background-color:#e1e1e1;}/*!sc*/
+.kRKgRk .sc-dntSTA{height:1.5em;width:1.5em;}/*!sc*/
+.kRKgRk .sc-dntSTA polygon{fill:#333333;}/*!sc*/
+.gmALeA{cursor:pointer;color:#333333;margin:0;padding:12.5px 20px;padding-left:40px;display:flex;justify-content:space-between;font-family:Montserrat,sans-serif;background-color:#fafafa;}/*!sc*/
+.gmALeA:hover{color:#52AF3B;background-color:#ededed;}/*!sc*/
+.gmALeA .sc-dntSTA{height:1.5em;width:1.5em;}/*!sc*/
+.gmALeA .sc-dntSTA polygon{fill:#333333;}/*!sc*/
+.cQKEGS{cursor:pointer;color:#333333;margin:0;padding:12.5px 20px;display:flex;justify-content:space-between;font-family:Montserrat,sans-serif;opacity:0.7;text-transform:uppercase;font-size:0.8em;padding-bottom:0;cursor:default;background-color:#fafafa;}/*!sc*/
+.cQKEGS .sc-dntSTA{height:1.5em;width:1.5em;}/*!sc*/
+.cQKEGS .sc-dntSTA polygon{fill:#333333;}/*!sc*/
+.fgZwZu{cursor:pointer;color:#333333;margin:0;padding:12.5px 20px;display:flex;justify-content:space-between;font-family:Montserrat,sans-serif;background-color:#fafafa;}/*!sc*/
+.fgZwZu:hover{color:#52AF3B;background-color:#ededed;}/*!sc*/
+.fgZwZu .sc-dntSTA{height:1.5em;width:1.5em;}/*!sc*/
+.fgZwZu .sc-dntSTA polygon{fill:#333333;}/*!sc*/
+data-styled.g103[id="sc-fpikKz"]{content:"kRKgRk,gmALeA,cQKEGS,fgZwZu,"}/*!sc*/
+.cxcra{display:inline-block;vertical-align:middle;width:calc(100% - 38px);overflow:hidden;text-overflow:ellipsis;}/*!sc*/
+data-styled.g104[id="sc-gWaSiO"]{content:"cxcra,"}/*!sc*/
+.QuyG{font-size:0.8em;margin-top:10px;text-align:center;position:fixed;width:260px;bottom:0;background:#fafafa;}/*!sc*/
+.QuyG a,.QuyG a:visited,.QuyG a:hover{color:#333333!important;padding:5px 0;border-top:1px solid #e1e1e1;text-decoration:none;display:flex;align-items:center;justify-content:center;}/*!sc*/
+.QuyG img{width:15px;margin-right:5px;}/*!sc*/
+@media screen and (max-width: 50rem){.QuyG{width:100%;}}/*!sc*/
+data-styled.g105[id="sc-kSaXSp"]{content:"QuyG,"}/*!sc*/
+.jjnszm{cursor:pointer;position:relative;margin-bottom:5px;}/*!sc*/
+data-styled.g111[id="sc-eZSpzM"]{content:"jjnszm,"}/*!sc*/
+.kZcHWP{font-family:Courier,monospace;margin-left:10px;flex:1;overflow-x:hidden;text-overflow:ellipsis;}/*!sc*/
+data-styled.g112[id="sc-jvKoal"]{content:"kZcHWP,"}/*!sc*/
+.iPCVMX{outline:0;color:inherit;width:100%;text-align:left;cursor:pointer;padding:10px 30px 10px 20px;border-radius:4px 4px 0 0;background-color:#11171a;display:flex;white-space:nowrap;align-items:center;border:1px solid transparent;border-bottom:0;transition:border-color 0.25s ease;}/*!sc*/
+.iPCVMX ..sc-jvKoal{color:#ffffff;}/*!sc*/
+.iPCVMX:focus{box-shadow:inset 0 2px 2px rgba(0, 0, 0, 0.45),0 2px 0 rgba(128, 128, 128, 0.25);}/*!sc*/
+data-styled.g113[id="sc-buTqWO"]{content:"iPCVMX,"}/*!sc*/
+.dynMBc{font-size:0.929em;line-height:20px;background-color:#2F8132;color:#ffffff;padding:3px 10px;text-transform:uppercase;font-family:Montserrat,sans-serif;margin:0;}/*!sc*/
+data-styled.g114[id="sc-fQLpxn"]{content:"dynMBc,"}/*!sc*/
+.ga-DQLq{position:absolute;width:100%;z-index:100;background:#fafafa;color:#263238;box-sizing:border-box;box-shadow:0 0 6px rgba(0, 0, 0, 0.33);overflow:hidden;border-bottom-left-radius:4px;border-bottom-right-radius:4px;transition:all 0.25s ease;visibility:hidden;transform:translateY(-50%) scaleY(0);}/*!sc*/
+data-styled.g115[id="sc-ecJghI"]{content:"ga-DQLq,"}/*!sc*/
+.icOxsG{padding:10px;}/*!sc*/
+data-styled.g116[id="sc-iyBeIh"]{content:"icOxsG,"}/*!sc*/
+.dKYdiQ{padding:5px;border:1px solid #ccc;background:#fff;word-break:break-all;color:#52AF3B;}/*!sc*/
+.dKYdiQ >span{color:#333333;}/*!sc*/
+data-styled.g117[id="sc-xKhEK"]{content:"dKYdiQ,"}/*!sc*/
+.cnQweL{display:block;border:0;width:100%;text-align:left;padding:10px;border-radius:2px;margin-bottom:4px;line-height:1.5em;cursor:pointer;color:#ffa500;background-color:rgba(255,165,0,0.1);cursor:default;}/*!sc*/
+.cnQweL:focus{outline:auto #ffa500;}/*!sc*/
+.cnQweL::before{content:"—";font-weight:bold;width:1.5em;text-align:center;display:inline-block;vertical-align:top;}/*!sc*/
+.cnQweL:focus{outline:0;}/*!sc*/
+.oZuve{display:block;border:0;width:100%;text-align:left;padding:10px;border-radius:2px;margin-bottom:4px;line-height:1.5em;cursor:pointer;color:#1d8127;background-color:rgba(29,129,39,0.07);cursor:default;}/*!sc*/
+.oZuve:focus{outline:auto #1d8127;}/*!sc*/
+.oZuve::before{content:"—";font-weight:bold;width:1.5em;text-align:center;display:inline-block;vertical-align:top;}/*!sc*/
+.oZuve:focus{outline:0;}/*!sc*/
+data-styled.g120[id="sc-jIDBmd"]{content:"cnQweL,oZuve,"}/*!sc*/
+.fBhAXU{vertical-align:top;}/*!sc*/
+data-styled.g123[id="sc-eJvlPh"]{content:"fBhAXU,"}/*!sc*/
+.kjrVcG{font-size:1.3em;padding:0.2em 0;margin:3em 0 1.1em;color:#333333;font-weight:normal;}/*!sc*/
+data-styled.g124[id="sc-gDzyrw"]{content:"kjrVcG,"}/*!sc*/
+.txIPi{margin-bottom:30px;}/*!sc*/
+data-styled.g129[id="sc-bfjeOH"]{content:"txIPi,"}/*!sc*/
+.fgMHgx{user-select:none;width:20px;height:20px;align-self:center;display:flex;flex-direction:column;color:#52AF3B;}/*!sc*/
+data-styled.g130[id="sc-cZnrqW"]{content:"fgMHgx,"}/*!sc*/
+.dsiHUZ{width:260px;background-color:#fafafa;overflow:hidden;display:flex;flex-direction:column;backface-visibility:hidden;height:100vh;position:sticky;position:-webkit-sticky;top:0;}/*!sc*/
+@media screen and (max-width: 50rem){.dsiHUZ{position:fixed;z-index:20;width:100%;background:#fafafa;display:none;}}/*!sc*/
+@media print{.dsiHUZ{display:none;}}/*!sc*/
+data-styled.g131[id="sc-fstJre"]{content:"dsiHUZ,"}/*!sc*/
+.hzBDzM{outline:none;user-select:none;background-color:#f2f2f2;color:#52AF3B;display:none;cursor:pointer;position:fixed;right:20px;z-index:100;border-radius:50%;box-shadow:0 0 20px rgba(0, 0, 0, 0.3);bottom:44px;width:60px;height:60px;padding:0 20px;}/*!sc*/
+@media screen and (max-width: 50rem){.hzBDzM{display:flex;}}/*!sc*/
+.hzBDzM svg{color:#0065FB;}/*!sc*/
+@media print{.hzBDzM{display:none;}}/*!sc*/
+data-styled.g132[id="sc-jOlHRD"]{content:"hzBDzM,"}/*!sc*/
+.eHdqcJ{font-family:Roboto,sans-serif;font-size:14px;font-weight:400;line-height:1.5em;color:#333333;display:flex;position:relative;text-align:left;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;text-rendering:optimizeSpeed!important;tap-highlight-color:rgba(0, 0, 0, 0);text-size-adjust:100%;}/*!sc*/
+.eHdqcJ *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(255, 255, 255, 0);}/*!sc*/
+data-styled.g133[id="sc-Pgsbw"]{content:"eHdqcJ,"}/*!sc*/
+.buanwU{z-index:1;position:relative;overflow:hidden;width:calc(100% - 260px);contain:layout;}/*!sc*/
+@media print,screen and (max-width: 50rem){.buanwU{width:100%;}}/*!sc*/
+data-styled.g134[id="sc-fkYqBV"]{content:"buanwU,"}/*!sc*/
+.iZqpqg{background:#263238;position:absolute;top:0;bottom:0;right:0;width:calc((100% - 260px) * 0.4);}/*!sc*/
+@media print,screen and (max-width: 75rem){.iZqpqg{display:none;}}/*!sc*/
+data-styled.g135[id="sc-evkzZa"]{content:"iZqpqg,"}/*!sc*/
+.gzMPIt{padding:5px 0;}/*!sc*/
+data-styled.g136[id="sc-iRcyzz"]{content:"gzMPIt,"}/*!sc*/
+.iOkeQy{width:calc(100% - 40px);box-sizing:border-box;margin:0 20px;padding:5px 10px 5px 20px;border:0;border-bottom:1px solid #e1e1e1;font-family:Roboto,sans-serif;font-weight:bold;font-size:13px;color:#333333;background-color:transparent;outline:none;}/*!sc*/
+data-styled.g137[id="sc-lhsSio"]{content:"iOkeQy,"}/*!sc*/
+.SikXG{position:absolute;left:20px;height:1.8em;width:0.9em;}/*!sc*/
+.SikXG path{fill:#333333;}/*!sc*/
+data-styled.g138[id="sc-enPhjR"]{content:"SikXG,"}/*!sc*/
+</style>
+  
+</head>
+
+<body>
+  
+      <div id="redoc"><div class="sc-Pgsbw eHdqcJ redoc-wrap"><div class="sc-fstJre dsiHUZ menu-content" style="top:0px;height:calc(100vh - 0px)"><div class="sc-jkvfRO eWuUlW"><a href="https://cmasnap.com" class="sc-eXVaYZ cirrIW"><img src="./img/logo.png" alt="CMAsnap Logo" class="sc-eKrodz boxHVJ"/></a></div><div role="search" class="sc-iRcyzz gzMPIt"><svg class="sc-enPhjR SikXG search-icon" version="1.1" viewBox="0 0 1000 1000" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M968.2,849.4L667.3,549c83.9-136.5,66.7-317.4-51.7-435.6C477.1-25,252.5-25,113.9,113.4c-138.5,138.3-138.5,362.6,0,501C219.2,730.1,413.2,743,547.6,666.5l301.9,301.4c43.6,43.6,76.9,14.9,104.2-12.4C981,928.3,1011.8,893,968.2,849.4z M524.5,522c-88.9,88.7-233,88.7-321.8,0c-88.9-88.7-88.9-232.6,0-321.3c88.9-88.7,233-88.7,321.8,0C613.4,289.4,613.4,433.3,524.5,522z"></path></svg><input placeholder="Search..." aria-label="Search" type="text" class="sc-lhsSio iOkeQy search-input" value=""/></div><div class="sc-eknHtZ ghzOpX scrollbar-container undefined"><ul role="menu" class="sc-zOxLx gAPKXX"><li tabindex="0" depth="1" data-item-id="section/CMAsnap-Integration-Guide" role="menuitem" aria-label="CMAsnap Integration Guide" aria-expanded="false" class="sc-cgHfjM ixknQI"><label class="sc-fpikKz kRKgRk -depth1"><span width="calc(100% - 38px)" title="CMAsnap Integration Guide" class="sc-gWaSiO cxcra">CMAsnap Integration Guide</span><svg class="sc-dntSTA dUlzCe" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></label><ul class="sc-zOxLx dQnkdy"><li tabindex="0" depth="2" data-item-id="section/CMAsnap-Integration-Guide/Overview" role="menuitem" aria-label="Overview" aria-expanded="false" class="sc-cgHfjM ixknQI"><label class="sc-fpikKz gmALeA -depth2"><span width="calc(100% - 38px)" title="Overview" class="sc-gWaSiO cxcra">Overview</span></label></li><li tabindex="0" depth="2" data-item-id="section/CMAsnap-Integration-Guide/Quick-Start" role="menuitem" aria-label="Quick Start" aria-expanded="false" class="sc-cgHfjM ixknQI"><label class="sc-fpikKz gmALeA -depth2"><span width="calc(100% - 38px)" title="Quick Start" class="sc-gWaSiO cxcra">Quick Start</span></label></li></ul></li><li tabindex="0" depth="0" data-item-id="group/Integration-Methods" role="menuitem" aria-label="Integration Methods" aria-expanded="true" class="sc-cgHfjM gRNEoC"><label class="sc-fpikKz cQKEGS -depth0"><span width="calc(100% - 38px)" title="Integration Methods" class="sc-gWaSiO cxcra">Integration Methods</span></label><ul class="sc-zOxLx gAPKXX"><li tabindex="0" depth="1" data-item-id="tag/Authentication" role="menuitem" aria-label="Authentication" aria-expanded="false" class="sc-cgHfjM ixknQI"><label class="sc-fpikKz kRKgRk -depth1"><span width="calc(100% - 38px)" title="Authentication" class="sc-gWaSiO cxcra">Authentication</span><svg class="sc-dntSTA dUlzCe" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></label><ul class="sc-zOxLx dQnkdy"><li tabindex="0" depth="2" data-item-id="tag/Authentication/paths/~1tangilla-sso/get" role="menuitem" aria-label="Tangilla Single Sign-On" aria-expanded="false" class="sc-cgHfjM ixknQI"><label class="sc-fpikKz fgZwZu -depth2"><span type="get" class="sc-jxYSNo cpoITs operation-type get">get</span><span tabindex="0" width="calc(100% - 38px)" class="sc-gWaSiO cxcra">Tangilla Single Sign-On</span></label></li><li tabindex="0" depth="2" data-item-id="tag/Authentication/paths/~1auto-login/get" role="menuitem" aria-label="Auto-login with provider" aria-expanded="false" class="sc-cgHfjM ixknQI"><label class="sc-fpikKz fgZwZu -depth2"><span type="get" class="sc-jxYSNo cpoITs operation-type get">get</span><span tabindex="0" width="calc(100% - 38px)" class="sc-gWaSiO cxcra">Auto-login with provider</span></label></li><li tabindex="0" depth="2" data-item-id="tag/Authentication/paths/~1new/get" role="menuitem" aria-label="Create new CMA report with authentication options" aria-expanded="false" class="sc-cgHfjM ixknQI"><label class="sc-fpikKz fgZwZu -depth2"><span type="get" class="sc-jxYSNo cpoITs operation-type get">get</span><span tabindex="0" width="calc(100% - 38px)" class="sc-gWaSiO cxcra">Create new CMA report with authentication options</span></label></li></ul></li><li tabindex="0" depth="1" data-item-id="tag/Embedding" role="menuitem" aria-label="Embedding" aria-expanded="false" class="sc-cgHfjM ixknQI"><label class="sc-fpikKz kRKgRk -depth1"><span width="calc(100% - 38px)" title="Embedding" class="sc-gWaSiO cxcra">Embedding</span><svg class="sc-dntSTA dUlzCe" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></label><ul class="sc-zOxLx dQnkdy"><li tabindex="0" depth="2" data-item-id="tag/Embedding/paths/~1new/get" role="menuitem" aria-label="Create new CMA report with authentication options" aria-expanded="false" class="sc-cgHfjM ixknQI"><label class="sc-fpikKz fgZwZu -depth2"><span type="get" class="sc-jxYSNo cpoITs operation-type get">get</span><span tabindex="0" width="calc(100% - 38px)" class="sc-gWaSiO cxcra">Create new CMA report with authentication options</span></label></li></ul></li></ul></li></ul><div class="sc-kSaXSp QuyG"><a target="_blank" rel="noopener noreferrer" href="https://redocly.com/redoc/">API docs by Redocly</a></div></div></div><div class="sc-jOlHRD hzBDzM"><div class="sc-cZnrqW fgMHgx"><svg class="" style="transform:translate(2px, -4px) rotate(180deg);transition:transform 0.2s ease" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15"><g transform="translate(904.92214,-879.1482)"><path d="
+          m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
+          -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
+          0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
+          -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
+          -174.68583 0.6895,0 26.281,25.03215 56.8701,
+          55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
+          -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
+          -104.0616 -231.873,-231.248 z
+        " fill="currentColor"></path></g></svg><svg class="" style="transform:translate(2px, 4px);transition:transform 0.2s ease" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15"><g transform="translate(904.92214,-879.1482)"><path d="
+          m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
+          -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
+          0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
+          -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
+          -174.68583 0.6895,0 26.281,25.03215 56.8701,
+          55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
+          -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
+          -104.0616 -231.873,-231.248 z
+        " fill="currentColor"></path></g></svg></div></div><div class="sc-fkYqBV buanwU api-content"><div class="sc-dTvVRJ bPmFpz"><div class="sc-jJLAfE gkiSyE"><div class="sc-ggWZvA fqkwbU api-info"><h1 class="sc-hwkwBN sc-jCWzJg wYHiz hPcPCj">CMAsnap Integration Documentation<!-- --> <span>(<!-- -->1.0.0<!-- -->)</span></h1><p>Download OpenAPI specification<!-- -->:</p><div class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv"><div class="sc-erPUmh eAqtbt"><div class="sc-iRTMaw beOrEi"><span class="sc-jVxTAy hijBKj">CMAsnap Support<!-- -->:<!-- --> <a href="mailto:support@cmasnap.com">support@cmasnap.com</a></span> <span class="sc-jVxTAy hijBKj">URL: <a href="https://cmasnap.com">https://cmasnap.com</a></span> <!-- --> </div></div></div><div data-role="redoc-summary" html="" class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv"></div><div data-role="redoc-description" html="" class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv"></div></div></div></div><div id="section/CMAsnap-Integration-Guide" data-section-id="section/CMAsnap-Integration-Guide" class="sc-dTvVRJ bPmFpz"><div class="sc-jJLAfE gkiSyE"><div class="sc-ggWZvA fqkwbU"><h2 class="sc-kNOymR iFSqkw"><a class="sc-kcLKEh fRdsOi" href="#section/CMAsnap-Integration-Guide" aria-label="section/CMAsnap-Integration-Guide"></a>CMAsnap Integration Guide</h2></div></div><div class="sc-ggWZvA dCzIPc"><div class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv redoc-markdown " html="&lt;p&gt;This documentation covers authentication strategies and embedding options for integrating CMAsnap into your applications.&lt;/p&gt;
+"><p>This documentation covers authentication strategies and embedding options for integrating CMAsnap into your applications.</p>
+</div></div></div><div id="section/CMAsnap-Integration-Guide/Overview" data-section-id="section/CMAsnap-Integration-Guide/Overview" class="sc-dTvVRJ bPmFpz"><div class="sc-jJLAfE gkiSyE"><div class="sc-ggWZvA fqkwbU"><h2 class="sc-dYwGCk cXqSZD"><a class="sc-kcLKEh fRdsOi" href="#section/CMAsnap-Integration-Guide/Overview" aria-label="section/CMAsnap-Integration-Guide/Overview"></a>Overview</h2></div></div><div class="sc-ggWZvA dCzIPc"><div class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv redoc-markdown " html="&lt;p&gt;CMAsnap provides multiple methods for authentication and integration:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OAuth2 with Auth0&lt;/strong&gt;: Primary authentication with email/password or social providers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tangilla SSO&lt;/strong&gt;: Seamless single sign-on for Tangilla users&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embedding&lt;/strong&gt;: Iframe integration for seamless CMAsnap functionality in your website&lt;/li&gt;
+&lt;/ul&gt;
+"><p>CMAsnap provides multiple methods for authentication and integration:</p>
+<ul>
+<li><strong>OAuth2 with Auth0</strong>: Primary authentication with email/password or social providers</li>
+<li><strong>Tangilla SSO</strong>: Seamless single sign-on for Tangilla users</li>
+<li><strong>Embedding</strong>: Iframe integration for seamless CMAsnap functionality in your website</li>
+</ul>
+</div></div></div><div id="section/CMAsnap-Integration-Guide/Quick-Start" data-section-id="section/CMAsnap-Integration-Guide/Quick-Start" class="sc-dTvVRJ bPmFpz"><div class="sc-jJLAfE gkiSyE"><div class="sc-ggWZvA fqkwbU"><h2 class="sc-dYwGCk cXqSZD"><a class="sc-kcLKEh fRdsOi" href="#section/CMAsnap-Integration-Guide/Quick-Start" aria-label="section/CMAsnap-Integration-Guide/Quick-Start"></a>Quick Start</h2></div></div><div class="sc-ggWZvA dCzIPc"><div class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv redoc-markdown " html="&lt;h3 id=&quot;tangilla-sso&quot;&gt;Tangilla SSO&lt;/h3&gt;
+&lt;p&gt;Direct users to: &lt;code&gt;https://app.cmasnap.com/tangilla-sso?mlsId=PROPERTY_ID&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;embedding&quot;&gt;Embedding&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;iframe&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;cmasnap-iframe&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://app.cmasnap.com/new?embed=true&amp;amp;mlsId=PROPERTY_ID&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;scrolling&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;no&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;iframe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://app.cmasnap.com/static/js/embed.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  const cmasnapInt = setInterval(() =&gt; {
+    if (typeof CMAsnap !== &#x27;undefined&#x27;) {
+      new CMAsnap(&#x27;#cmasnap-iframe&#x27;);
+      clearInterval(cmasnapInt);
+    }
+  }, 1000);
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+"><h3 id="tangilla-sso">Tangilla SSO</h3>
+<p>Direct users to: <code>https://app.cmasnap.com/tangilla-sso?mlsId=PROPERTY_ID</code></p>
+<h3 id="embedding">Embedding</h3>
+<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span>
+  <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cmasnap-iframe<span class="token punctuation">"</span></span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://app.cmasnap.com/new?embed=true&amp;mlsId=PROPERTY_ID<span class="token punctuation">"</span></span>
+  <span class="token attr-name">scrolling</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no<span class="token punctuation">"</span></span>
+  <span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://app.cmasnap.com/static/js/embed.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span>
+  const cmasnapInt = setInterval(() => {
+    if (typeof CMAsnap !== 'undefined') {
+      new CMAsnap('#cmasnap-iframe');
+      clearInterval(cmasnapInt);
+    }
+  }, 1000);
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+</div></div></div><div id="tag/Authentication" data-section-id="tag/Authentication" class="sc-dTvVRJ bPmFpz"><div class="sc-jJLAfE gkiSyE"><div class="sc-ggWZvA fqkwbU"><h2 class="sc-kNOymR iFSqkw"><a class="sc-kcLKEh fRdsOi" href="#tag/Authentication" aria-label="tag/Authentication"></a>Authentication</h2></div></div><div class="sc-ggWZvA dCzIPc"><div class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv redoc-markdown " html="&lt;p&gt;Authentication strategies and SSO options&lt;/p&gt;
+"><p>Authentication strategies and SSO options</p>
+</div></div></div><div id="tag/Authentication/paths/~1tangilla-sso/get" data-section-id="tag/Authentication/paths/~1tangilla-sso/get" class="sc-dTvVRJ gHrCVQ"><div class="sc-jJLAfE gkiSyE"><div class="sc-ggWZvA fqkwbU"><h2 class="sc-kNOymR iFSqkw"><a class="sc-kcLKEh fRdsOi" href="#tag/Authentication/paths/~1tangilla-sso/get" aria-label="tag/Authentication/paths/~1tangilla-sso/get"></a>Tangilla Single Sign-On<!-- --> </h2><div class="sc-bfjeOH txIPi"><div html="&lt;p&gt;Automatically authenticates users who are logged into Tangilla, providing seamless access to CMAsnap.&lt;/p&gt;
+&lt;h2 id=&quot;how-it-works&quot;&gt;How it works:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;User clicks a link to &lt;code&gt;https://app.cmasnap.com/tangilla-sso&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If user is logged into Tangilla, they&amp;#39;re automatically authenticated&lt;/li&gt;
+&lt;li&gt;User is redirected to the requested resource (e.g., property report)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;benefits&quot;&gt;Benefits:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;No additional login required&lt;/li&gt;
+&lt;li&gt;Seamless user experience&lt;/li&gt;
+&lt;li&gt;Maintains context (mlsId, return URLs)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;example-implementation&quot;&gt;Example Implementation:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Generate a Tangilla SSO link&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createTangillaLink&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;mlsId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;https://app.cmasnap.com/tangilla-sso?mlsId=&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;mlsId&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Redirect to Tangilla SSO&lt;/span&gt;
+window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;location&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;href &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createTangillaLink&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#x27;PROP123456&#x27;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv"><p>Automatically authenticates users who are logged into Tangilla, providing seamless access to CMAsnap.</p>
+<h2 id="how-it-works">How it works:</h2>
+<ol>
+<li>User clicks a link to <code>https://app.cmasnap.com/tangilla-sso</code></li>
+<li>If user is logged into Tangilla, they&#39;re automatically authenticated</li>
+<li>User is redirected to the requested resource (e.g., property report)</li>
+</ol>
+<h2 id="benefits">Benefits:</h2>
+<ul>
+<li>No additional login required</li>
+<li>Seamless user experience</li>
+<li>Maintains context (mlsId, return URLs)</li>
+</ul>
+<h2 id="example-implementation">Example Implementation:</h2>
+<pre><code class="language-javascript"><span class="token comment">// Generate a Tangilla SSO link</span>
+<span class="token keyword">function</span> <span class="token function">createTangillaLink</span><span class="token punctuation">(</span><span class="token parameter">mlsId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://app.cmasnap.com/tangilla-sso?mlsId=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>mlsId<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Redirect to Tangilla SSO</span>
+window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token function">createTangillaLink</span><span class="token punctuation">(</span><span class="token string">'PROP123456'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</div></div><div><h5 class="sc-eqYatC czjApA">query<!-- --> Parameters</h5><table class="sc-eqNDNG icJLQx"><tbody><tr class=""><td kind="field" title="mlsId" class="sc-kCuUfV sc-fbQrwq dNuXXU dFOJWJ"><span class="sc-hwddKA fzmcV"></span><span class="property-name">mlsId</span></td><td class="sc-gGKoUb dSxocm"><div><div><span class="sc-bEjUoa sc-boKDdR lhyyLL jYezsP"></span><span class="sc-bEjUoa sc-fOOuSg lhyyLL dbKJYq">string</span></div> <div><span class="sc-bEjUoa lhyyLL"> <!-- -->Example:<!-- --> </span> <span class="sc-bEjUoa sc-dTWiOz lhyyLL kMQdIk">mlsId=PROP123456</span></div><div><div html="&lt;p&gt;MLS property ID - loads existing report or creates new one after authentication&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>MLS property ID - loads existing report or creates new one after authentication</p>
+</div></div></div></td></tr><tr class="last "><td kind="field" title="returnTo" class="sc-kCuUfV sc-fbQrwq dNuXXU dFOJWJ"><span class="sc-hwddKA fzmcV"></span><span class="property-name">returnTo</span></td><td class="sc-gGKoUb dSxocm"><div><div><span class="sc-bEjUoa sc-boKDdR lhyyLL jYezsP"></span><span class="sc-bEjUoa sc-fOOuSg lhyyLL dbKJYq">string</span></div> <div><span class="sc-bEjUoa lhyyLL"> <!-- -->Example:<!-- --> </span> <span class="sc-bEjUoa sc-dTWiOz lhyyLL kMQdIk">returnTo=/reports/custom-view</span></div><div><div html="&lt;p&gt;Custom URL to redirect to after authentication&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>Custom URL to redirect to after authentication</p>
+</div></div></div></td></tr></tbody></table></div><div><h3 class="sc-gDzyrw kjrVcG">Responses</h3><div><button class="sc-jIDBmd cnQweL" disabled=""><strong class="sc-eJvlPh fBhAXU">302<!-- --> </strong><div html="&lt;p&gt;Redirects to Auth0 with Tangilla connection for automatic authentication&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp sc-etsjJW kIppRw chfQiV ljKHqG"><p>Redirects to Auth0 with Tangilla connection for automatic authentication</p>
+</div></button></div></div></div><div class="sc-jwTyAe sc-hjsuWn bDYKKx FFPsr"><div class="sc-eZSpzM jjnszm"><button class="sc-buTqWO iPCVMX"><span type="get" class="sc-fQLpxn dynMBc http-verb get">get</span><span class="sc-jvKoal kZcHWP">/tangilla-sso</span><svg class="sc-dntSTA iuNpUs" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-ecJghI ga-DQLq"><div class="sc-iyBeIh icOxsG"><div html="&lt;p&gt;Production server&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>Production server</p>
+</div><div tabindex="0" role="button"><div class="sc-xKhEK dKYdiQ"><span>https://app.cmasnap.com</span>/tangilla-sso</div></div></div></div></div></div></div></div><div id="tag/Authentication/paths/~1auto-login/get" data-section-id="tag/Authentication/paths/~1auto-login/get" class="sc-dTvVRJ gHrCVQ"><div class="sc-jJLAfE gkiSyE"><div class="sc-ggWZvA fqkwbU"><h2 class="sc-kNOymR iFSqkw"><a class="sc-kcLKEh fRdsOi" href="#tag/Authentication/paths/~1auto-login/get" aria-label="tag/Authentication/paths/~1auto-login/get"></a>Auto-login with provider<!-- --> </h2><div class="sc-bfjeOH txIPi"><div html="&lt;p&gt;Generic auto-login endpoint that attempts authentication with a specified provider.&lt;/p&gt;
+&lt;p&gt;Currently supports:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tangilla&lt;/code&gt;: Tangilla SSO provider&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This endpoint is useful when you want to conditionally trigger auto-login based on user context.&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv"><p>Generic auto-login endpoint that attempts authentication with a specified provider.</p>
+<p>Currently supports:</p>
+<ul>
+<li><code>tangilla</code>: Tangilla SSO provider</li>
+</ul>
+<p>This endpoint is useful when you want to conditionally trigger auto-login based on user context.</p>
+</div></div><div><h5 class="sc-eqYatC czjApA">query<!-- --> Parameters</h5><table class="sc-eqNDNG icJLQx"><tbody><tr class="last "><td kind="field" title="returnTo" class="sc-kCuUfV sc-fbQrwq dNuXXU dFOJWJ"><span class="sc-hwddKA fzmcV"></span><span class="property-name">returnTo</span></td><td class="sc-gGKoUb dSxocm"><div><div><span class="sc-bEjUoa sc-boKDdR lhyyLL jYezsP"></span><span class="sc-bEjUoa sc-fOOuSg lhyyLL dbKJYq">string</span></div> <div><span class="sc-bEjUoa lhyyLL"> <!-- -->Example:<!-- --> </span> <span class="sc-bEjUoa sc-dTWiOz lhyyLL kMQdIk">returnTo=/new?mlsId=PROP789</span></div><div><div html="&lt;p&gt;URL to return to after successful authentication&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>URL to return to after successful authentication</p>
+</div></div></div></td></tr></tbody></table></div><div><h3 class="sc-gDzyrw kjrVcG">Responses</h3><div><button class="sc-jIDBmd cnQweL" disabled=""><strong class="sc-eJvlPh fBhAXU">302<!-- --> </strong><div html="&lt;p&gt;Redirects to authentication provider&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp sc-etsjJW kIppRw chfQiV ljKHqG"><p>Redirects to authentication provider</p>
+</div></button></div></div></div><div class="sc-jwTyAe sc-hjsuWn bDYKKx FFPsr"><div class="sc-eZSpzM jjnszm"><button class="sc-buTqWO iPCVMX"><span type="get" class="sc-fQLpxn dynMBc http-verb get">get</span><span class="sc-jvKoal kZcHWP">/auto-login</span><svg class="sc-dntSTA iuNpUs" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-ecJghI ga-DQLq"><div class="sc-iyBeIh icOxsG"><div html="&lt;p&gt;Production server&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>Production server</p>
+</div><div tabindex="0" role="button"><div class="sc-xKhEK dKYdiQ"><span>https://app.cmasnap.com</span>/auto-login</div></div></div></div></div></div></div></div><div id="tag/Authentication/paths/~1new/get" data-section-id="tag/Authentication/paths/~1new/get" class="sc-dTvVRJ gHrCVQ"><div class="sc-jJLAfE gkiSyE"><div class="sc-ggWZvA fqkwbU"><h2 class="sc-kNOymR iFSqkw"><a class="sc-kcLKEh fRdsOi" href="#tag/Authentication/paths/~1new/get" aria-label="tag/Authentication/paths/~1new/get"></a>Create new CMA report with authentication options<!-- --> </h2><div class="sc-bfjeOH txIPi"><div html="&lt;p&gt;Main entry point for creating CMA reports. Supports multiple authentication and access methods.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; When using &lt;code&gt;mlsId&lt;/code&gt; or &lt;code&gt;address&lt;/code&gt; parameters, the system will first attempt to find an existing report for that property. If found, it will load the existing report; otherwise, it will create a new one.&lt;/p&gt;
+&lt;h2 id=&quot;authentication-methods&quot;&gt;Authentication Methods:&lt;/h2&gt;
+&lt;h3 id=&quot;1-standard-authentication&quot;&gt;1. Standard Authentication&lt;/h3&gt;
+&lt;p&gt;Users not logged in are redirected to Auth0 login page.&lt;/p&gt;
+&lt;h3 id=&quot;2-tangilla-auto-login&quot;&gt;2. Tangilla Auto-Login&lt;/h3&gt;
+&lt;p&gt;Add &lt;code&gt;?autoLogin=tangilla&lt;/code&gt; to attempt automatic Tangilla authentication:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cmasnap&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;com&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;mlsId&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;PROP123&lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;autoLogin&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;tangilla
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;3-embed-mode&quot;&gt;3. Embed Mode&lt;/h3&gt;
+&lt;p&gt;Add &lt;code&gt;?embed=true&lt;/code&gt; for iframe integration:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;iframe&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;cmasnap-iframe&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://app.cmasnap.com/new?embed=true&amp;amp;mlsId=PROP123&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;scrolling&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;no&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;iframe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;combined-example&quot;&gt;Combined Example:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- Embedded CMAsnap with Tangilla auto-login --&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;iframe&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;cmasnap-iframe&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://app.cmasnap.com/new?embed=true&amp;amp;autoLogin=tangilla&amp;amp;mlsId=PROP123&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;scrolling&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;no&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;iframe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://app.cmasnap.com/static/js/embed.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  const cmasnapInt = setInterval(() =&gt; {
+    if (typeof CMAsnap !== &#x27;undefined&#x27;) {
+      new CMAsnap(&#x27;#cmasnap-iframe&#x27;);
+      clearInterval(cmasnapInt);
+    }
+  }, 1000);
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv"><p>Main entry point for creating CMA reports. Supports multiple authentication and access methods.</p>
+<p><strong>Note:</strong> When using <code>mlsId</code> or <code>address</code> parameters, the system will first attempt to find an existing report for that property. If found, it will load the existing report; otherwise, it will create a new one.</p>
+<h2 id="authentication-methods">Authentication Methods:</h2>
+<h3 id="1-standard-authentication">1. Standard Authentication</h3>
+<p>Users not logged in are redirected to Auth0 login page.</p>
+<h3 id="2-tangilla-auto-login">2. Tangilla Auto-Login</h3>
+<p>Add <code>?autoLogin=tangilla</code> to attempt automatic Tangilla authentication:</p>
+<pre><code>https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>app<span class="token punctuation">.</span>cmasnap<span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token keyword">new</span><span class="token operator">?</span>mlsId<span class="token operator">=</span>PROP123<span class="token operator">&amp;</span>autoLogin<span class="token operator">=</span>tangilla
+</code></pre>
+<h3 id="3-embed-mode">3. Embed Mode</h3>
+<p>Add <code>?embed=true</code> for iframe integration:</p>
+<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span>
+  <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cmasnap-iframe<span class="token punctuation">"</span></span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://app.cmasnap.com/new?embed=true&amp;mlsId=PROP123<span class="token punctuation">"</span></span>
+  <span class="token attr-name">scrolling</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no<span class="token punctuation">"</span></span>
+  <span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="combined-example">Combined Example:</h2>
+<pre><code class="language-html"><span class="token comment">&lt;!-- Embedded CMAsnap with Tangilla auto-login --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span>
+  <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cmasnap-iframe<span class="token punctuation">"</span></span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://app.cmasnap.com/new?embed=true&amp;autoLogin=tangilla&amp;mlsId=PROP123<span class="token punctuation">"</span></span>
+  <span class="token attr-name">scrolling</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no<span class="token punctuation">"</span></span>
+  <span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://app.cmasnap.com/static/js/embed.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span>
+  const cmasnapInt = setInterval(() => {
+    if (typeof CMAsnap !== 'undefined') {
+      new CMAsnap('#cmasnap-iframe');
+      clearInterval(cmasnapInt);
+    }
+  }, 1000);
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+</div></div><div><h5 class="sc-eqYatC czjApA">query<!-- --> Parameters</h5><table class="sc-eqNDNG icJLQx"><tbody><tr class=""><td kind="field" title="mlsId" class="sc-kCuUfV sc-fbQrwq dNuXXU dFOJWJ"><span class="sc-hwddKA fzmcV"></span><span class="property-name">mlsId</span></td><td class="sc-gGKoUb dSxocm"><div><div><span class="sc-bEjUoa sc-boKDdR lhyyLL jYezsP"></span><span class="sc-bEjUoa sc-fOOuSg lhyyLL dbKJYq">string</span></div> <div><span class="sc-bEjUoa lhyyLL"> <!-- -->Example:<!-- --> </span> <span class="sc-bEjUoa sc-dTWiOz lhyyLL kMQdIk">mlsId=PROP123456</span></div><div><div html="&lt;p&gt;MLS listing ID - searches for existing report or creates new one for this property&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>MLS listing ID - searches for existing report or creates new one for this property</p>
+</div></div></div></td></tr><tr class=""><td kind="field" title="address" class="sc-kCuUfV sc-fbQrwq dNuXXU dFOJWJ"><span class="sc-hwddKA fzmcV"></span><span class="property-name">address</span></td><td class="sc-gGKoUb dSxocm"><div><div><span class="sc-bEjUoa sc-boKDdR lhyyLL jYezsP"></span><span class="sc-bEjUoa sc-fOOuSg lhyyLL dbKJYq">string</span></div> <div><span class="sc-bEjUoa lhyyLL"> <!-- -->Example:<!-- --> </span> <span class="sc-bEjUoa sc-dTWiOz lhyyLL kMQdIk">address=123%20Main%20St%2C%20Austin%2C%20TX</span></div><div><div html="&lt;p&gt;URL-encoded property address - searches for existing report or creates new one at this address&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>URL-encoded property address - searches for existing report or creates new one at this address</p>
+</div></div></div></td></tr><tr class=""><td kind="field" title="embed" class="sc-kCuUfV sc-fbQrwq dNuXXU dFOJWJ"><span class="sc-hwddKA fzmcV"></span><span class="property-name">embed</span></td><td class="sc-gGKoUb dSxocm"><div><div><span class="sc-bEjUoa sc-boKDdR lhyyLL jYezsP"></span><span class="sc-bEjUoa sc-fOOuSg lhyyLL dbKJYq">boolean</span></div><div><span class="sc-bEjUoa lhyyLL"> <!-- -->Default:<!-- --> </span> <span class="sc-bEjUoa sc-dTWiOz lhyyLL kMQdIk">false</span></div> <div><div html="&lt;p&gt;Enable embed mode for iframe usage&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>Enable embed mode for iframe usage</p>
+</div></div></div></td></tr><tr class="last "><td kind="field" title="autoLogin" class="sc-kCuUfV sc-fbQrwq dNuXXU dFOJWJ"><span class="sc-hwddKA fzmcV"></span><span class="property-name">autoLogin</span></td><td class="sc-gGKoUb dSxocm"><div><div><span class="sc-bEjUoa sc-boKDdR lhyyLL jYezsP"></span><span class="sc-bEjUoa sc-fOOuSg lhyyLL dbKJYq">string</span></div><div><span class="sc-bEjUoa lhyyLL"> <!-- -->Value<!-- -->:</span> <span class="sc-bEjUoa sc-dTWiOz lhyyLL kMQdIk">&quot;tangilla&quot;</span> </div> <div><div html="&lt;p&gt;Attempt auto-login with specified provider (currently only &amp;#39;tangilla&amp;#39;)&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>Attempt auto-login with specified provider (currently only &#39;tangilla&#39;)</p>
+</div></div></div></td></tr></tbody></table></div><div><h3 class="sc-gDzyrw kjrVcG">Responses</h3><div><button class="sc-jIDBmd oZuve" disabled=""><strong class="sc-eJvlPh fBhAXU">200<!-- --> </strong><div html="&lt;p&gt;CMA report creation interface&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp sc-etsjJW kIppRw chfQiV ljKHqG"><p>CMA report creation interface</p>
+</div></button></div><div><button class="sc-jIDBmd cnQweL" disabled=""><strong class="sc-eJvlPh fBhAXU">302<!-- --> </strong><div html="&lt;p&gt;Redirect to authentication if not logged in&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp sc-etsjJW kIppRw chfQiV ljKHqG"><p>Redirect to authentication if not logged in</p>
+</div></button></div></div></div><div class="sc-jwTyAe sc-hjsuWn bDYKKx FFPsr"><div class="sc-eZSpzM jjnszm"><button class="sc-buTqWO iPCVMX"><span type="get" class="sc-fQLpxn dynMBc http-verb get">get</span><span class="sc-jvKoal kZcHWP">/new</span><svg class="sc-dntSTA iuNpUs" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-ecJghI ga-DQLq"><div class="sc-iyBeIh icOxsG"><div html="&lt;p&gt;Production server&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>Production server</p>
+</div><div tabindex="0" role="button"><div class="sc-xKhEK dKYdiQ"><span>https://app.cmasnap.com</span>/new</div></div></div></div></div></div></div></div><div id="tag/Embedding" data-section-id="tag/Embedding" class="sc-dTvVRJ bPmFpz"><div class="sc-jJLAfE gkiSyE"><div class="sc-ggWZvA fqkwbU"><h2 class="sc-kNOymR iFSqkw"><a class="sc-kcLKEh fRdsOi" href="#tag/Embedding" aria-label="tag/Embedding"></a>Embedding</h2></div></div><div class="sc-ggWZvA dCzIPc"><div class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv redoc-markdown " html="&lt;p&gt;Iframe integration and embedding options&lt;/p&gt;
+"><p>Iframe integration and embedding options</p>
+</div></div></div><div id="tag/Embedding/paths/~1new/get" data-section-id="tag/Embedding/paths/~1new/get" class="sc-dTvVRJ gHrCVQ"><div class="sc-jJLAfE gkiSyE"><div class="sc-ggWZvA fqkwbU"><h2 class="sc-kNOymR iFSqkw"><a class="sc-kcLKEh fRdsOi" href="#tag/Embedding/paths/~1new/get" aria-label="tag/Embedding/paths/~1new/get"></a>Create new CMA report with authentication options<!-- --> </h2><div class="sc-bfjeOH txIPi"><div html="&lt;p&gt;Main entry point for creating CMA reports. Supports multiple authentication and access methods.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; When using &lt;code&gt;mlsId&lt;/code&gt; or &lt;code&gt;address&lt;/code&gt; parameters, the system will first attempt to find an existing report for that property. If found, it will load the existing report; otherwise, it will create a new one.&lt;/p&gt;
+&lt;h2 id=&quot;authentication-methods&quot;&gt;Authentication Methods:&lt;/h2&gt;
+&lt;h3 id=&quot;1-standard-authentication&quot;&gt;1. Standard Authentication&lt;/h3&gt;
+&lt;p&gt;Users not logged in are redirected to Auth0 login page.&lt;/p&gt;
+&lt;h3 id=&quot;2-tangilla-auto-login&quot;&gt;2. Tangilla Auto-Login&lt;/h3&gt;
+&lt;p&gt;Add &lt;code&gt;?autoLogin=tangilla&lt;/code&gt; to attempt automatic Tangilla authentication:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cmasnap&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;com&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;mlsId&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;PROP123&lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;autoLogin&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;tangilla
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;3-embed-mode&quot;&gt;3. Embed Mode&lt;/h3&gt;
+&lt;p&gt;Add &lt;code&gt;?embed=true&lt;/code&gt; for iframe integration:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;iframe&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;cmasnap-iframe&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://app.cmasnap.com/new?embed=true&amp;amp;mlsId=PROP123&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;scrolling&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;no&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;iframe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;combined-example&quot;&gt;Combined Example:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- Embedded CMAsnap with Tangilla auto-login --&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;iframe&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;cmasnap-iframe&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://app.cmasnap.com/new?embed=true&amp;amp;autoLogin=tangilla&amp;amp;mlsId=PROP123&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;scrolling&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;no&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;iframe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://app.cmasnap.com/static/js/embed.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  const cmasnapInt = setInterval(() =&gt; {
+    if (typeof CMAsnap !== &#x27;undefined&#x27;) {
+      new CMAsnap(&#x27;#cmasnap-iframe&#x27;);
+      clearInterval(cmasnapInt);
+    }
+  }, 1000);
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw hRyRVv"><p>Main entry point for creating CMA reports. Supports multiple authentication and access methods.</p>
+<p><strong>Note:</strong> When using <code>mlsId</code> or <code>address</code> parameters, the system will first attempt to find an existing report for that property. If found, it will load the existing report; otherwise, it will create a new one.</p>
+<h2 id="authentication-methods">Authentication Methods:</h2>
+<h3 id="1-standard-authentication">1. Standard Authentication</h3>
+<p>Users not logged in are redirected to Auth0 login page.</p>
+<h3 id="2-tangilla-auto-login">2. Tangilla Auto-Login</h3>
+<p>Add <code>?autoLogin=tangilla</code> to attempt automatic Tangilla authentication:</p>
+<pre><code>https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>app<span class="token punctuation">.</span>cmasnap<span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token keyword">new</span><span class="token operator">?</span>mlsId<span class="token operator">=</span>PROP123<span class="token operator">&amp;</span>autoLogin<span class="token operator">=</span>tangilla
+</code></pre>
+<h3 id="3-embed-mode">3. Embed Mode</h3>
+<p>Add <code>?embed=true</code> for iframe integration:</p>
+<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span>
+  <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cmasnap-iframe<span class="token punctuation">"</span></span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://app.cmasnap.com/new?embed=true&amp;mlsId=PROP123<span class="token punctuation">"</span></span>
+  <span class="token attr-name">scrolling</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no<span class="token punctuation">"</span></span>
+  <span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="combined-example">Combined Example:</h2>
+<pre><code class="language-html"><span class="token comment">&lt;!-- Embedded CMAsnap with Tangilla auto-login --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span>
+  <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cmasnap-iframe<span class="token punctuation">"</span></span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://app.cmasnap.com/new?embed=true&amp;autoLogin=tangilla&amp;mlsId=PROP123<span class="token punctuation">"</span></span>
+  <span class="token attr-name">scrolling</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no<span class="token punctuation">"</span></span>
+  <span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://app.cmasnap.com/static/js/embed.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span>
+  const cmasnapInt = setInterval(() => {
+    if (typeof CMAsnap !== 'undefined') {
+      new CMAsnap('#cmasnap-iframe');
+      clearInterval(cmasnapInt);
+    }
+  }, 1000);
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+</div></div><div><h5 class="sc-eqYatC czjApA">query<!-- --> Parameters</h5><table class="sc-eqNDNG icJLQx"><tbody><tr class=""><td kind="field" title="mlsId" class="sc-kCuUfV sc-fbQrwq dNuXXU dFOJWJ"><span class="sc-hwddKA fzmcV"></span><span class="property-name">mlsId</span></td><td class="sc-gGKoUb dSxocm"><div><div><span class="sc-bEjUoa sc-boKDdR lhyyLL jYezsP"></span><span class="sc-bEjUoa sc-fOOuSg lhyyLL dbKJYq">string</span></div> <div><span class="sc-bEjUoa lhyyLL"> <!-- -->Example:<!-- --> </span> <span class="sc-bEjUoa sc-dTWiOz lhyyLL kMQdIk">mlsId=PROP123456</span></div><div><div html="&lt;p&gt;MLS listing ID - searches for existing report or creates new one for this property&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>MLS listing ID - searches for existing report or creates new one for this property</p>
+</div></div></div></td></tr><tr class=""><td kind="field" title="address" class="sc-kCuUfV sc-fbQrwq dNuXXU dFOJWJ"><span class="sc-hwddKA fzmcV"></span><span class="property-name">address</span></td><td class="sc-gGKoUb dSxocm"><div><div><span class="sc-bEjUoa sc-boKDdR lhyyLL jYezsP"></span><span class="sc-bEjUoa sc-fOOuSg lhyyLL dbKJYq">string</span></div> <div><span class="sc-bEjUoa lhyyLL"> <!-- -->Example:<!-- --> </span> <span class="sc-bEjUoa sc-dTWiOz lhyyLL kMQdIk">address=123%20Main%20St%2C%20Austin%2C%20TX</span></div><div><div html="&lt;p&gt;URL-encoded property address - searches for existing report or creates new one at this address&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>URL-encoded property address - searches for existing report or creates new one at this address</p>
+</div></div></div></td></tr><tr class=""><td kind="field" title="embed" class="sc-kCuUfV sc-fbQrwq dNuXXU dFOJWJ"><span class="sc-hwddKA fzmcV"></span><span class="property-name">embed</span></td><td class="sc-gGKoUb dSxocm"><div><div><span class="sc-bEjUoa sc-boKDdR lhyyLL jYezsP"></span><span class="sc-bEjUoa sc-fOOuSg lhyyLL dbKJYq">boolean</span></div><div><span class="sc-bEjUoa lhyyLL"> <!-- -->Default:<!-- --> </span> <span class="sc-bEjUoa sc-dTWiOz lhyyLL kMQdIk">false</span></div> <div><div html="&lt;p&gt;Enable embed mode for iframe usage&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>Enable embed mode for iframe usage</p>
+</div></div></div></td></tr><tr class="last "><td kind="field" title="autoLogin" class="sc-kCuUfV sc-fbQrwq dNuXXU dFOJWJ"><span class="sc-hwddKA fzmcV"></span><span class="property-name">autoLogin</span></td><td class="sc-gGKoUb dSxocm"><div><div><span class="sc-bEjUoa sc-boKDdR lhyyLL jYezsP"></span><span class="sc-bEjUoa sc-fOOuSg lhyyLL dbKJYq">string</span></div><div><span class="sc-bEjUoa lhyyLL"> <!-- -->Value<!-- -->:</span> <span class="sc-bEjUoa sc-dTWiOz lhyyLL kMQdIk">&quot;tangilla&quot;</span> </div> <div><div html="&lt;p&gt;Attempt auto-login with specified provider (currently only &amp;#39;tangilla&amp;#39;)&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>Attempt auto-login with specified provider (currently only &#39;tangilla&#39;)</p>
+</div></div></div></td></tr></tbody></table></div><div><h3 class="sc-gDzyrw kjrVcG">Responses</h3><div><button class="sc-jIDBmd oZuve" disabled=""><strong class="sc-eJvlPh fBhAXU">200<!-- --> </strong><div html="&lt;p&gt;CMA report creation interface&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp sc-etsjJW kIppRw chfQiV ljKHqG"><p>CMA report creation interface</p>
+</div></button></div><div><button class="sc-jIDBmd cnQweL" disabled=""><strong class="sc-eJvlPh fBhAXU">302<!-- --> </strong><div html="&lt;p&gt;Redirect to authentication if not logged in&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp sc-etsjJW kIppRw chfQiV ljKHqG"><p>Redirect to authentication if not logged in</p>
+</div></button></div></div></div><div class="sc-jwTyAe sc-hjsuWn bDYKKx FFPsr"><div class="sc-eZSpzM jjnszm"><button class="sc-buTqWO iPCVMX"><span type="get" class="sc-fQLpxn dynMBc http-verb get">get</span><span class="sc-jvKoal kZcHWP">/new</span><svg class="sc-dntSTA iuNpUs" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon></svg></button><div aria-hidden="true" class="sc-ecJghI ga-DQLq"><div class="sc-iyBeIh icOxsG"><div html="&lt;p&gt;Production server&lt;/p&gt;
+" class="sc-eVqvcJ sc-fszimp kIppRw jUvsIN"><p>Production server</p>
+</div><div tabindex="0" role="button"><div class="sc-xKhEK dKYdiQ"><span>https://app.cmasnap.com</span>/new</div></div></div></div></div></div></div></div></div><div class="sc-evkzZa iZqpqg"></div></div></div>
+      <script>
+      const __redoc_state = {"menu":{"activeItemIdx":-1},"spec":{"data":{"openapi":"3.0.0","info":{"title":"CMAsnap Integration Documentation","description":"# CMAsnap Integration Guide\n\nThis documentation covers authentication strategies and embedding options for integrating CMAsnap into your applications.\n\n## Overview\n\nCMAsnap provides multiple methods for authentication and integration:\n\n- **OAuth2 with Auth0**: Primary authentication with email/password or social providers\n- **Tangilla SSO**: Seamless single sign-on for Tangilla users\n- **Embedding**: Iframe integration for seamless CMAsnap functionality in your website\n\n## Quick Start\n\n### Tangilla SSO\nDirect users to: `https://app.cmasnap.com/tangilla-sso?mlsId=PROPERTY_ID`\n\n### Embedding\n```html\n<iframe\n  id=\"cmasnap-iframe\"\n  src=\"https://app.cmasnap.com/new?embed=true&mlsId=PROPERTY_ID\"\n  scrolling=\"no\"\n  style=\"width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px\">\n</iframe>\n\n<script src=\"https://app.cmasnap.com/static/js/embed.js\"><\/script>\n\n<script>\n  const cmasnapInt = setInterval(() => {\n    if (typeof CMAsnap !== 'undefined') {\n      new CMAsnap('#cmasnap-iframe');\n      clearInterval(cmasnapInt);\n    }\n  }, 1000);\n<\/script>\n```\n","version":"1.0.0","contact":{"name":"CMAsnap Support","url":"https://cmasnap.com","email":"support@cmasnap.com"},"x-logo":{"url":"./img/logo.png","altText":"CMAsnap Logo"}},"servers":[{"url":"https://app.cmasnap.com","description":"Production server"}],"tags":[{"name":"Authentication","description":"Authentication strategies and SSO options"},{"name":"Embedding","description":"Iframe integration and embedding options"}],"paths":{"/tangilla-sso":{"get":{"tags":["Authentication"],"summary":"Tangilla Single Sign-On","description":"Automatically authenticates users who are logged into Tangilla, providing seamless access to CMAsnap.\n\n## How it works:\n1. User clicks a link to `https://app.cmasnap.com/tangilla-sso`\n2. If user is logged into Tangilla, they're automatically authenticated\n3. User is redirected to the requested resource (e.g., property report)\n\n## Benefits:\n- No additional login required\n- Seamless user experience\n- Maintains context (mlsId, return URLs)\n\n## Example Implementation:\n```javascript\n// Generate a Tangilla SSO link\nfunction createTangillaLink(mlsId) {\n  return `https://app.cmasnap.com/tangilla-sso?mlsId=${mlsId}`;\n}\n\n// Redirect to Tangilla SSO\nwindow.location.href = createTangillaLink('PROP123456');\n```\n","parameters":[{"name":"mlsId","in":"query","description":"MLS property ID - loads existing report or creates new one after authentication","schema":{"type":"string"},"example":"PROP123456"},{"name":"returnTo","in":"query","description":"Custom URL to redirect to after authentication","schema":{"type":"string"},"example":"/reports/custom-view"}],"responses":{"302":{"description":"Redirects to Auth0 with Tangilla connection for automatic authentication"}}}},"/auto-login":{"get":{"tags":["Authentication"],"summary":"Auto-login with provider","description":"Generic auto-login endpoint that attempts authentication with a specified provider.\n\nCurrently supports:\n- `tangilla`: Tangilla SSO provider\n\nThis endpoint is useful when you want to conditionally trigger auto-login based on user context.\n","parameters":[{"name":"returnTo","in":"query","description":"URL to return to after successful authentication","required":false,"schema":{"type":"string"},"example":"/new?mlsId=PROP789"}],"responses":{"302":{"description":"Redirects to authentication provider"}}}},"/new":{"get":{"tags":["Authentication","Embedding"],"summary":"Create new CMA report with authentication options","description":"Main entry point for creating CMA reports. Supports multiple authentication and access methods.\n\n**Note:** When using `mlsId` or `address` parameters, the system will first attempt to find an existing report for that property. If found, it will load the existing report; otherwise, it will create a new one.\n\n## Authentication Methods:\n\n### 1. Standard Authentication\nUsers not logged in are redirected to Auth0 login page.\n\n### 2. Tangilla Auto-Login\nAdd `?autoLogin=tangilla` to attempt automatic Tangilla authentication:\n```\nhttps://app.cmasnap.com/new?mlsId=PROP123&autoLogin=tangilla\n```\n\n### 3. Embed Mode\nAdd `?embed=true` for iframe integration:\n```html\n<iframe\n  id=\"cmasnap-iframe\"\n  src=\"https://app.cmasnap.com/new?embed=true&mlsId=PROP123\"\n  scrolling=\"no\"\n  style=\"width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px\">\n</iframe>\n```\n\n## Combined Example:\n```html\n<!-- Embedded CMAsnap with Tangilla auto-login -->\n<iframe\n  id=\"cmasnap-iframe\"\n  src=\"https://app.cmasnap.com/new?embed=true&autoLogin=tangilla&mlsId=PROP123\"\n  scrolling=\"no\"\n  style=\"width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px\">\n</iframe>\n\n<script src=\"https://app.cmasnap.com/static/js/embed.js\"><\/script>\n\n<script>\n  const cmasnapInt = setInterval(() => {\n    if (typeof CMAsnap !== 'undefined') {\n      new CMAsnap('#cmasnap-iframe');\n      clearInterval(cmasnapInt);\n    }\n  }, 1000);\n<\/script>\n```\n","parameters":[{"name":"mlsId","in":"query","description":"MLS listing ID - searches for existing report or creates new one for this property","schema":{"type":"string"},"example":"PROP123456"},{"name":"address","in":"query","description":"URL-encoded property address - searches for existing report or creates new one at this address","schema":{"type":"string"},"example":"123%20Main%20St%2C%20Austin%2C%20TX"},{"name":"embed","in":"query","description":"Enable embed mode for iframe usage","schema":{"type":"boolean","default":false}},{"name":"autoLogin","in":"query","description":"Attempt auto-login with specified provider (currently only 'tangilla')","schema":{"type":"string","enum":["tangilla"]}}],"responses":{"200":{"description":"CMA report creation interface"},"302":{"description":"Redirect to authentication if not logged in"}}}}},"x-tagGroups":[{"name":"Integration Methods","tags":["Authentication","Embedding"]}],"components":{"examples":{"TangillaDeepLink":{"summary":"Tangilla Deep Link","value":"https://app.cmasnap.com/tangilla-sso?mlsId=PROP123456\n\nThis link will:\n1. Check if user is logged into Tangilla\n2. Automatically authenticate them\n3. Load property PROP123456\n"},"EmbedWithAutoLogin":{"summary":"Embed with Auto-Login","value":"<iframe\n  id=\"cmasnap-iframe\"\n  src=\"https://app.cmasnap.com/new?embed=true&autoLogin=tangilla&mlsId=PROP789\"\n  scrolling=\"no\"\n  style=\"width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px\">\n</iframe>\n\n<script src=\"https://app.cmasnap.com/static/js/embed.js\"><\/script>\n\n<script>\n  const cmasnapInt = setInterval(() => {\n    if (typeof CMAsnap !== 'undefined') {\n      new CMAsnap('#cmasnap-iframe');\n      clearInterval(cmasnapInt);\n    }\n  }, 1000);\n<\/script>\n"},"SimpleEmbed":{"summary":"Simple Embed","value":"<iframe\n  id=\"cmasnap-iframe\"\n  src=\"https://app.cmasnap.com/new?embed=true&address=123%20Main%20St\"\n  scrolling=\"no\"\n  style=\"width: 1px; min-width: 100%; border: 0; overflow: hidden; height: 500px\">\n</iframe>\n\n<script src=\"https://app.cmasnap.com/static/js/embed.js\"><\/script>\n\n<script>\n  const cmasnapInt = setInterval(() => {\n    if (typeof CMAsnap !== 'undefined') {\n      new CMAsnap('#cmasnap-iframe');\n      clearInterval(cmasnapInt);\n    }\n  }, 1000);\n<\/script>\n"}}}}},"searchIndex":{"store":["section/CMAsnap-Integration-Guide","section/CMAsnap-Integration-Guide/Overview","section/CMAsnap-Integration-Guide/Quick-Start","tag/Authentication","tag/Authentication/paths/~1tangilla-sso/get","tag/Authentication/paths/~1auto-login/get","tag/Authentication/paths/~1new/get","tag/Embedding","tag/Embedding/paths/~1new/get"],"index":{"version":"2.3.9","fields":["title","description"],"fieldVectors":[["title/0",[0,0.279,1,0.417,2,1.837]],["description/0",[0,0.433,1,0.648,3,2.853,4,2.853,5,0.07,6,2.085,7,0.433,8,0.899,9,2.853]],["title/1",[10,2.57]],["description/1",[0,0.445,1,0.667,5,0.072,7,0.344,11,1.236,12,1.254,13,1.254,14,0.74,15,2.265,16,1.254,17,2.265,18,2.265,19,2.265,20,0.445,21,0.714,22,2.146,23,1.655,24,1.655,25,0.514,26,0.714,27,1.655,28,2.265]],["title/2",[29,2.143,30,2.143]],["description/2",[0,0.297,7,0.297,14,0.851,20,0.297,21,0.617,25,0.445,26,0.84,31,1.958,32,1.958,33,1.083,34,1.083,35,1.958,36,1.083,37,1.083,38,1.083,39,1.083,40,1.083,41,1.083,42,1.083,43,1.083,44,1.083,45,1.083,46,1.083,47,1.677,48,1.083,49,1.083,50,1.083,51,1.083,52,1.083,53,1.083,54,0.617,55,1.083,56,1.083,57,1.083]],["title/3",[5,0.063]],["description/3",[5,0.075,6,2.222,8,0.958,21,0.958]],["title/4",[20,0.279,23,1.342,24,1.342]],["description/4",[0,0.245,5,0.057,11,0.68,14,0.837,20,0.453,21,0.734,22,1.702,25,0.72,27,1.18,58,1.289,59,1.289,60,0.894,61,1.615,62,0.894,63,1.615,64,2.329,65,1.615,66,0.894,67,1.615,68,0.894,69,1.289,70,1.615,71,1.615,72,1.615,73,0.894,74,0.509,75,1.615,76,1.615,77,0.894,78,1.615,79,1.615,80,1.615,81,1.18,82,0.894,83,2.329,84,1.615,85,0.894,86,1.615,87,1.615,88,1.18,89,1.615,90,1.615,91,1.615,92,1.615,93,1.615]],["title/5",[11,0.902,94,0.902]],["description/5",[5,0.059,11,1.285,14,0.547,20,0.463,21,0.759,25,0.547,81,1.759,88,1.759,94,1.411,95,3.053,96,1.332,97,2.407,98,2.407,99,1.332,100,1.332,101,2.407,102,2.407,103,2.407,104,2.407]],["title/6",[5,0.032,8,0.405,54,0.405,74,0.405,105,0.542,106,0.542]],["description/6",[0,0.272,1,0.26,5,0.062,7,0.173,12,0.633,13,0.993,14,0.826,16,0.633,20,0.336,25,0.26,26,0.86,33,0.993,34,0.993,36,0.993,37,0.993,38,0.993,39,0.993,40,0.993,41,0.993,42,0.993,43,0.993,44,0.993,45,0.993,46,0.993,47,1.226,48,0.633,49,0.633,50,0.633,51,0.633,52,0.633,53,0.633,54,0.698,55,0.633,56,0.633,57,0.633,58,0.633,59,0.633,60,0.633,62,0.633,66,0.633,68,0.633,69,0.633,73,0.633,74,0.698,77,0.633,82,0.633,85,0.633,94,0.756,96,0.993,99,0.633,100,0.633,105,0.756,106,0.481,107,0.835,108,0.835,109,0.835,110,0.835,111,0.835,112,0.835,113,0.835,114,0.835,115,0.835,116,1.312,117,0.835,118,0.835,119,0.835,120,0.835,121,0.835,122,0.835,123,1.312,124,0.835,125,0.835,126,0.835,127,0.835,128,0.835,129,0.835,130,0.835,131,0.835]],["title/7",[7,0.39]],["description/7",[1,0.691,7,0.461,8,0.958,26,0.958]],["title/8",[5,0.032,8,0.405,54,0.405,74,0.405,105,0.542,106,0.542]],["description/8",[0,0.272,1,0.26,5,0.062,7,0.173,12,0.633,13,0.993,14,0.826,16,0.633,20,0.336,25,0.26,26,0.86,33,0.993,34,0.993,36,0.993,37,0.993,38,0.993,39,0.993,40,0.993,41,0.993,42,0.993,43,0.993,44,0.993,45,0.993,46,0.993,47,1.226,48,0.633,49,0.633,50,0.633,51,0.633,52,0.633,53,0.633,54,0.698,55,0.633,56,0.633,57,0.633,58,0.633,59,0.633,60,0.633,62,0.633,66,0.633,68,0.633,69,0.633,73,0.633,74,0.698,77,0.633,82,0.633,85,0.633,94,0.756,96,0.993,99,0.633,100,0.633,105,0.756,106,0.481,107,0.835,108,0.835,109,0.835,110,0.835,111,0.835,112,0.835,113,0.835,114,0.835,115,0.835,116,1.312,117,0.835,118,0.835,119,0.835,120,0.835,121,0.835,122,0.835,123,1.312,124,0.835,125,0.835,126,0.835,127,0.835,128,0.835,129,0.835,130,0.835,131,0.835]]],"invertedIndex":[["",{"_index":14,"title":{},"description":{"1":{},"2":{},"4":{},"5":{},"6":{},"8":{}}}],["0",{"_index":42,"title":{},"description":{"2":{},"6":{},"8":{}}}],["1",{"_index":62,"title":{},"description":{"4":{},"6":{},"8":{}}}],["100",{"_index":40,"title":{},"description":{"2":{},"6":{},"8":{}}}],["1000",{"_index":57,"title":{},"description":{"2":{},"6":{},"8":{}}}],["1px",{"_index":38,"title":{},"description":{"2":{},"6":{},"8":{}}}],["2",{"_index":66,"title":{},"description":{"4":{},"6":{},"8":{}}}],["3",{"_index":68,"title":{},"description":{"4":{},"6":{},"8":{}}}],["500px",{"_index":46,"title":{},"description":{"2":{},"6":{},"8":{}}}],["access",{"_index":60,"title":{},"description":{"4":{},"6":{},"8":{}}}],["add",{"_index":123,"title":{},"description":{"6":{},"8":{}}}],["addit",{"_index":76,"title":{},"description":{"4":{}}}],["address",{"_index":111,"title":{},"description":{"6":{},"8":{}}}],["applic",{"_index":9,"title":{},"description":{"0":{}}}],["attempt",{"_index":96,"title":{},"description":{"5":{},"6":{},"8":{}}}],["auth0",{"_index":16,"title":{},"description":{"1":{},"6":{},"8":{}}}],["authent",{"_index":5,"title":{"3":{},"6":{},"8":{}},"description":{"0":{},"1":{},"3":{},"4":{},"5":{},"6":{},"8":{}}}],["auto-login",{"_index":94,"title":{"5":{}},"description":{"5":{},"6":{},"8":{}}}],["autologin=tangilla",{"_index":124,"title":{},"description":{"6":{},"8":{}}}],["automat",{"_index":58,"title":{},"description":{"4":{},"6":{},"8":{}}}],["base",{"_index":104,"title":{},"description":{"5":{}}}],["benefit",{"_index":75,"title":{},"description":{"4":{}}}],["border",{"_index":41,"title":{},"description":{"2":{},"6":{},"8":{}}}],["clearinterval(cmasnapint",{"_index":56,"title":{},"description":{"2":{},"6":{},"8":{}}}],["click",{"_index":63,"title":{},"description":{"4":{}}}],["cma",{"_index":106,"title":{"6":{},"8":{}},"description":{"6":{},"8":{}}}],["cmasnap",{"_index":0,"title":{"0":{}},"description":{"0":{},"1":{},"2":{},"4":{},"6":{},"8":{}}}],["cmasnap('#cmasnap-ifram",{"_index":55,"title":{},"description":{"2":{},"6":{},"8":{}}}],["cmasnapint",{"_index":50,"title":{},"description":{"2":{},"6":{},"8":{}}}],["combin",{"_index":130,"title":{},"description":{"6":{},"8":{}}}],["condition",{"_index":102,"title":{},"description":{"5":{}}}],["const",{"_index":49,"title":{},"description":{"2":{},"6":{},"8":{}}}],["context",{"_index":81,"title":{},"description":{"4":{},"5":{}}}],["cover",{"_index":4,"title":{},"description":{"0":{}}}],["creat",{"_index":105,"title":{"6":{},"8":{}},"description":{"6":{},"8":{}}}],["createtangillalink('prop123456",{"_index":92,"title":{},"description":{"4":{}}}],["createtangillalink(mlsid",{"_index":89,"title":{},"description":{"4":{}}}],["current",{"_index":98,"title":{},"description":{"5":{}}}],["direct",{"_index":31,"title":{},"description":{"2":{}}}],["document",{"_index":3,"title":{},"description":{"0":{}}}],["e.g",{"_index":72,"title":{},"description":{"4":{}}}],["email/password",{"_index":18,"title":{},"description":{"1":{}}}],["emb",{"_index":126,"title":{},"description":{"6":{},"8":{}}}],["embed",{"_index":7,"title":{"7":{}},"description":{"0":{},"1":{},"2":{},"6":{},"7":{},"8":{}}}],["embed=tru",{"_index":128,"title":{},"description":{"6":{},"8":{}}}],["endpoint",{"_index":95,"title":{},"description":{"5":{}}}],["entri",{"_index":108,"title":{},"description":{"6":{},"8":{}}}],["exampl",{"_index":85,"title":{},"description":{"4":{},"6":{},"8":{}}}],["exist",{"_index":116,"title":{},"description":{"6":{},"8":{}}}],["experi",{"_index":79,"title":{},"description":{"4":{}}}],["find",{"_index":115,"title":{},"description":{"6":{},"8":{}}}],["first",{"_index":114,"title":{},"description":{"6":{},"8":{}}}],["found",{"_index":117,"title":{},"description":{"6":{},"8":{}}}],["function",{"_index":27,"title":{},"description":{"1":{},"4":{}}}],["gener",{"_index":88,"title":{},"description":{"4":{},"5":{}}}],["guid",{"_index":2,"title":{"0":{}},"description":{}}],["height",{"_index":45,"title":{},"description":{"2":{},"6":{},"8":{}}}],["hidden",{"_index":44,"title":{},"description":{"2":{},"6":{},"8":{}}}],["html",{"_index":33,"title":{},"description":{"2":{},"6":{},"8":{}}}],["https://app.cmasnap.com/new?mlsid=prop123&autologin=tangilla",{"_index":125,"title":{},"description":{"6":{},"8":{}}}],["https://app.cmasnap.com/tangilla-sso",{"_index":65,"title":{},"description":{"4":{}}}],["https://app.cmasnap.com/tangilla-sso?mlsid=${mlsid",{"_index":90,"title":{},"description":{"4":{}}}],["https://app.cmasnap.com/tangilla-sso?mlsid=property_id",{"_index":32,"title":{},"description":{"2":{}}}],["id=\"cmasnap-ifram",{"_index":34,"title":{},"description":{"2":{},"6":{},"8":{}}}],["ifram",{"_index":26,"title":{},"description":{"1":{},"2":{},"6":{},"7":{},"8":{}}}],["implement",{"_index":86,"title":{},"description":{"4":{}}}],["integr",{"_index":1,"title":{"0":{}},"description":{"0":{},"1":{},"6":{},"7":{},"8":{}}}],["javascript",{"_index":87,"title":{},"description":{"4":{}}}],["link",{"_index":64,"title":{},"description":{"4":{}}}],["load",{"_index":118,"title":{},"description":{"6":{},"8":{}}}],["log",{"_index":59,"title":{},"description":{"4":{},"6":{},"8":{}}}],["login",{"_index":77,"title":{},"description":{"4":{},"6":{},"8":{}}}],["main",{"_index":107,"title":{},"description":{"6":{},"8":{}}}],["maintain",{"_index":80,"title":{},"description":{"4":{}}}],["method",{"_index":13,"title":{},"description":{"1":{},"6":{},"8":{}}}],["min-width",{"_index":39,"title":{},"description":{"2":{},"6":{},"8":{}}}],["mlsid",{"_index":82,"title":{},"description":{"4":{},"6":{},"8":{}}}],["mode",{"_index":127,"title":{},"description":{"6":{},"8":{}}}],["multipl",{"_index":12,"title":{},"description":{"1":{},"6":{},"8":{}}}],["new",{"_index":54,"title":{"6":{},"8":{}},"description":{"2":{},"6":{},"8":{}}}],["note",{"_index":110,"title":{},"description":{"6":{},"8":{}}}],["oauth2",{"_index":15,"title":{},"description":{"1":{}}}],["on",{"_index":120,"title":{},"description":{"6":{},"8":{}}}],["option",{"_index":8,"title":{"6":{},"8":{}},"description":{"0":{},"3":{},"7":{}}}],["otherwis",{"_index":119,"title":{},"description":{"6":{},"8":{}}}],["overflow",{"_index":43,"title":{},"description":{"2":{},"6":{},"8":{}}}],["overview",{"_index":10,"title":{"1":{}},"description":{}}],["page",{"_index":122,"title":{},"description":{"6":{},"8":{}}}],["paramet",{"_index":112,"title":{},"description":{"6":{},"8":{}}}],["point",{"_index":109,"title":{},"description":{"6":{},"8":{}}}],["primari",{"_index":17,"title":{},"description":{"1":{}}}],["properti",{"_index":73,"title":{},"description":{"4":{},"6":{},"8":{}}}],["provid",{"_index":11,"title":{"5":{}},"description":{"1":{},"4":{},"5":{}}}],["quick",{"_index":29,"title":{"2":{}},"description":{}}],["redirect",{"_index":69,"title":{},"description":{"4":{},"6":{},"8":{}}}],["report",{"_index":74,"title":{"6":{},"8":{}},"description":{"4":{},"6":{},"8":{}}}],["request",{"_index":70,"title":{},"description":{"4":{}}}],["requir",{"_index":78,"title":{},"description":{"4":{}}}],["resourc",{"_index":71,"title":{},"description":{"4":{}}}],["return",{"_index":83,"title":{},"description":{"4":{}}}],["script",{"_index":47,"title":{},"description":{"2":{},"6":{},"8":{}}}],["scrolling=\"no",{"_index":36,"title":{},"description":{"2":{},"6":{},"8":{}}}],["seamless",{"_index":22,"title":{},"description":{"1":{},"4":{}}}],["setinterv",{"_index":51,"title":{},"description":{"2":{},"6":{},"8":{}}}],["sign-on",{"_index":24,"title":{"4":{}},"description":{"1":{}}}],["singl",{"_index":23,"title":{"4":{}},"description":{"1":{}}}],["social",{"_index":19,"title":{},"description":{"1":{}}}],["specifi",{"_index":97,"title":{},"description":{"5":{}}}],["src=\"https://app.cmasnap.com/new?embed=true&autologin=tangilla&mlsid=prop123",{"_index":131,"title":{},"description":{"6":{},"8":{}}}],["src=\"https://app.cmasnap.com/new?embed=true&mlsid=prop123",{"_index":129,"title":{},"description":{"6":{},"8":{}}}],["src=\"https://app.cmasnap.com/new?embed=true&mlsid=property_id",{"_index":35,"title":{},"description":{"2":{}}}],["src=\"https://app.cmasnap.com/static/js/embed.js\"></script",{"_index":48,"title":{},"description":{"2":{},"6":{},"8":{}}}],["sso",{"_index":21,"title":{},"description":{"1":{},"2":{},"3":{},"4":{},"5":{}}}],["standard",{"_index":121,"title":{},"description":{"6":{},"8":{}}}],["start",{"_index":30,"title":{"2":{}},"description":{}}],["strategi",{"_index":6,"title":{},"description":{"0":{},"3":{}}}],["style=\"width",{"_index":37,"title":{},"description":{"2":{},"6":{},"8":{}}}],["support",{"_index":99,"title":{},"description":{"5":{},"6":{},"8":{}}}],["system",{"_index":113,"title":{},"description":{"6":{},"8":{}}}],["tangilla",{"_index":20,"title":{"4":{}},"description":{"1":{},"2":{},"4":{},"5":{},"6":{},"8":{}}}],["tangilla-sso",{"_index":93,"title":{},"description":{"4":{}}}],["they'r",{"_index":67,"title":{},"description":{"4":{}}}],["trigger",{"_index":103,"title":{},"description":{"5":{}}}],["typeof",{"_index":52,"title":{},"description":{"2":{},"6":{},"8":{}}}],["undefin",{"_index":53,"title":{},"description":{"2":{},"6":{},"8":{}}}],["url",{"_index":84,"title":{},"description":{"4":{}}}],["us",{"_index":100,"title":{},"description":{"5":{},"6":{},"8":{}}}],["user",{"_index":25,"title":{},"description":{"1":{},"2":{},"4":{},"5":{},"6":{},"8":{}}}],["want",{"_index":101,"title":{},"description":{"5":{}}}],["websit",{"_index":28,"title":{},"description":{"1":{}}}],["window.location.href",{"_index":91,"title":{},"description":{"4":{}}}],["work",{"_index":61,"title":{},"description":{"4":{}}}]],"pipeline":[]}},"options":{"theme":{"colors":{"primary":{"main":"#52AF3B"}}}}};
+
+      var container = document.getElementById('redoc');
+      Redoc.hydrate(__redoc_state, container);
+
+      </script>
+</body>
+
+</html>
